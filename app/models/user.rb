@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
           #confirmable is for sending confirmation email to users to complete 
           #registration 
   include DeviseTokenAuth::Concerns::User
+
+  has_many :branch_managers
+  has_many  :branches , through: :branch_managers
+  has_many :activity_managers
+  has_many  :student_activities , through: :activity_managers
+
 end
