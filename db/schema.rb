@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031172758) do
+ActiveRecord::Schema.define(version: 20171106215722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20171031172758) do
     t.datetime "updated_at", null: false
     t.index ["student_activity_id"], name: "index_activity_managers_on_student_activity_id"
     t.index ["user_id"], name: "index_activity_managers_on_user_id"
+  end
+
+  create_table "attends", force: :cascade do |t|
+    t.string "status"
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attends_on_event_id"
+    t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
   create_table "branch_managers", force: :cascade do |t|
@@ -38,6 +48,29 @@ ActiveRecord::Schema.define(version: 20171031172758) do
   create_table "branches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "student_activity_id"
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_reservations_on_branch_id"
+    t.index ["student_activity_id"], name: "index_reservations_on_student_activity_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "student_activities", force: :cascade do |t|

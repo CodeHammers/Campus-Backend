@@ -9,9 +9,12 @@ class User < ActiveRecord::Base
           #registration 
   include DeviseTokenAuth::Concerns::User
 
+  has_many :reviews
+  has_many :reservations      
   has_many :branch_managers
   has_many  :branches , through: :branch_managers
   has_many :activity_managers
   has_many  :student_activities , through: :activity_managers
-
+  has_many  :events , through: :attends
+  
 end
