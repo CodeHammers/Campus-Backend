@@ -10,81 +10,89 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107151348) do
+ActiveRecord::Schema.define(version: 20171116120853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "activity_managers", force: :cascade do |t|
-    t.string "role"
-    t.bigint "student_activity_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["student_activity_id"], name: "index_activity_managers_on_student_activity_id"
-    t.index ["user_id"], name: "index_activity_managers_on_user_id"
-  end
-
   create_table "attends", force: :cascade do |t|
-    t.string "status"
-    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_attends_on_event_id"
-    t.index ["user_id"], name: "index_attends_on_user_id"
-  end
-
-  create_table "branch_managers", force: :cascade do |t|
-    t.string "Role"
-    t.bigint "branch_id"
     t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_branch_managers_on_branch_id"
-    t.index ["user_id"], name: "index_branch_managers_on_user_id"
+    t.index ["event_id"], name: "index_attends_on_event_id", unique: true
+    t.index ["user_id"], name: "index_attends_on_user_id", unique: true
   end
 
   create_table "branches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "workspace_id"
+    t.index ["workspace_id"], name: "index_branches_on_workspace_id", unique: true
   end
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_events_on_organization_id", unique: true
   end
 
-  create_table "identified_bies", force: :cascade do |t|
+  create_table "organizations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "branch_id"
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.index ["branch_id"], name: "index_positions_on_branch_id", unique: true
+    t.index ["organization_id"], name: "index_positions_on_organization_id", unique: true
+    t.index ["user_id"], name: "index_positions_on_user_id", unique: true
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "student_activity_id"
-    t.bigint "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_reservations_on_branch_id"
-    t.index ["student_activity_id"], name: "index_reservations_on_student_activity_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
+    t.bigint "branch_id"
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.index ["branch_id"], name: "index_reservations_on_branch_id", unique: true
+    t.index ["organization_id"], name: "index_reservations_on_organization_id", unique: true
+    t.index ["user_id"], name: "index_reservations_on_user_id", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.bigint "user_id"
+    t.bigint "branch_id"
+    t.bigint "workshop_id"
+    t.index ["branch_id"], name: "index_reviews_on_branch_id", unique: true
+    t.index ["user_id"], name: "index_reviews_on_user_id", unique: true
+    t.index ["workshop_id"], name: "index_reviews_on_workshop_id", unique: true
   end
 
-  create_table "student_activities", force: :cascade do |t|
+  create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "branch_id"
+    t.index ["branch_id"], name: "index_rooms_on_branch_id", unique: true
+  end
+
+  create_table "subscribes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "organization_id"
+    t.index ["organization_id"], name: "index_subscribes_on_organization_id", unique: true
+    t.index ["user_id"], name: "index_subscribes_on_user_id", unique: true
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,10 +127,12 @@ ActiveRecord::Schema.define(version: 20171107151348) do
   end
 
   create_table "workshops", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "branch_id"
+    t.bigint "organization_id"
+    t.index ["branch_id"], name: "index_workshops_on_branch_id", unique: true
+    t.index ["organization_id"], name: "index_workshops_on_organization_id", unique: true
   end
 
   create_table "workspaces", force: :cascade do |t|
@@ -130,4 +140,22 @@ ActiveRecord::Schema.define(version: 20171107151348) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attends", "events"
+  add_foreign_key "attends", "users"
+  add_foreign_key "branches", "workspaces"
+  add_foreign_key "events", "organizations"
+  add_foreign_key "positions", "branches"
+  add_foreign_key "positions", "organizations"
+  add_foreign_key "positions", "users"
+  add_foreign_key "reservations", "branches"
+  add_foreign_key "reservations", "organizations"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "branches"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "workshops"
+  add_foreign_key "rooms", "branches"
+  add_foreign_key "subscribes", "organizations"
+  add_foreign_key "subscribes", "users"
+  add_foreign_key "workshops", "branches"
+  add_foreign_key "workshops", "organizations"
 end

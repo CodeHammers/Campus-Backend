@@ -1,5 +1,11 @@
 class Branch < ApplicationRecord
-    has_many :branch_managers
-    has_many :reservations    
-    has_many  :users , through: :branch_managers
+    belongs_to :workspace
+    has_many :rooms
+    has_many :workshops
+    has_many :reviews
+    has_many :reservations
+
+    has_many :positions
+    has_many :users, through: :positions
+
 end
