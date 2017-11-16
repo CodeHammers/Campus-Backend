@@ -2,9 +2,10 @@ class BaseDesignRelation < ActiveRecord::Migration[5.1]
   def change
     create_table :positions do |t|
       #attributes
-      t.time  :start_time :null => false  
-      t.float :salary     :null => true 
       t.timestamps
+      t.time  :start_time ,:null => false  
+      t.float :salary    ,:null => true 
+    
 
       #relations
       t.belongs_to :branch ,index: { unique: true }, foreign_key: true
@@ -18,6 +19,7 @@ class BaseDesignRelation < ActiveRecord::Migration[5.1]
       t.timestamps
 
       #relations
+      
       t.belongs_to :event ,index: { unique: true }, foreign_key: true
       t.belongs_to :user ,index: { unique: true }, foreign_key: true
       
@@ -35,12 +37,12 @@ class BaseDesignRelation < ActiveRecord::Migration[5.1]
 
     create_table :identified_by do |t|
       #attributes
-      t.string :title  :null => false
+      t.string :title  #,:null => false
 
       #relations
-      t.belongs_to :organization, index { unique: true }, foreign_key: true
-      t.belongs_to :workshop, index { unique: true }, foreign_key: true
-      t.belongs_to :event, index { unique: true }, foreign_key: true 
+      t.belongs_to :organization, index: { unique: true }, foreign_key: true
+      t.belongs_to :workshop, index: { unique: true }, foreign_key: true
+      t.belongs_to :event, index: { unique: true }, foreign_key: true 
 
     end
 

@@ -28,7 +28,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
 
     create_table :branches do |t|
       #attributes
-      t.integer :id,             :null => false 
       t.integer :numer_of_rooms, :null => false   
       t.text    :services,       :null => true  
       t.string  :address,        :null => false 
@@ -44,7 +43,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
 
     create_table :rooms do |t|
       #attributes
-      t.integer :id,           :null => false 
       t.float   :price,        :null => false 
       t.boolean :availability, :null => false  
       t.integer :capacity,     :null => false 
@@ -58,7 +56,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
 
     create_table :workshops do |t|
       #attributes
-      t.integer :id,          :null => false 
       t.string  :title,       :null => false 
       t.text    :description, :null => true  
       t.date    :date,        :null => false 
@@ -74,7 +71,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
     create_table :events do |t|
       
       #attributes
-      t.integer :id,          :null => false 
       t.string  :title,       :null => false 
       t.text    :description, :null => false  
       t.time    :time,        :null => false 
@@ -93,7 +89,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
     create_table :reviews do |t|
       
       #attributes
-      t.integer :id,        :null => false 
       t.text    :feedback,  :null => false 
       t.float   :rating,    :null => false 
       t.timestamps
@@ -102,14 +97,13 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.belongs_to :user ,index: { unique: true }, foreign_key: true
       t.belongs_to :branch ,index: { unique: true }, foreign_key: true
       t.belongs_to :workshop ,index: { unique: true }, foreign_key: true
-      t.belongs_to ::organization, index { unique: true}, foreign_key: true 
+      t.belongs_to :organization, index: { unique: true}, foreign_key: true 
       
     end
 
     create_table :reservations do |t|
       
       #attributes
-      t.integer :id,                 :null => false 
       t.time    :start_time,         :null => false 
       t.float   :duration,           :null => false 
       t.boolean :payment_status,     :null => false 
@@ -126,7 +120,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
     create_table :tags do |t|
       
       #attributes
-      t.string :title  :null => false 
+      t.string :title,  :null => false 
       t.timestamps
 
       #relations
