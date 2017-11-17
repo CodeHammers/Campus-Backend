@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.bigint "event_id"
     t.bigint "user_id"
-    t.index ["event_id"], name: "index_attends_on_event_id", unique: true
-    t.index ["user_id"], name: "index_attends_on_user_id", unique: true
+    t.index ["event_id"], name: "index_attends_on_event_id"
+    t.index ["user_id"], name: "index_attends_on_user_id"
   end
 
   create_table "branches", force: :cascade do |t|
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "workspace_id"
-    t.index ["workspace_id"], name: "index_branches_on_workspace_id", unique: true
+    t.index ["workspace_id"], name: "index_branches_on_workspace_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
     t.bigint "branch_id"
-    t.index ["branch_id"], name: "index_events_on_branch_id", unique: true
-    t.index ["organization_id"], name: "index_events_on_organization_id", unique: true
+    t.index ["branch_id"], name: "index_events_on_branch_id"
+    t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
   create_table "identified_by", force: :cascade do |t|
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.bigint "organization_id"
     t.bigint "workshop_id"
     t.bigint "event_id"
-    t.index ["event_id"], name: "index_identified_by_on_event_id", unique: true
-    t.index ["organization_id"], name: "index_identified_by_on_organization_id", unique: true
-    t.index ["workshop_id"], name: "index_identified_by_on_workshop_id", unique: true
+    t.index ["event_id"], name: "index_identified_by_on_event_id"
+    t.index ["organization_id"], name: "index_identified_by_on_organization_id"
+    t.index ["workshop_id"], name: "index_identified_by_on_workshop_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.bigint "branch_id"
     t.bigint "user_id"
     t.bigint "organization_id"
-    t.index ["branch_id"], name: "index_positions_on_branch_id", unique: true
-    t.index ["organization_id"], name: "index_positions_on_organization_id", unique: true
-    t.index ["user_id"], name: "index_positions_on_user_id", unique: true
+    t.index ["branch_id"], name: "index_positions_on_branch_id"
+    t.index ["organization_id"], name: "index_positions_on_organization_id"
+    t.index ["user_id"], name: "index_positions_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.bigint "branch_id"
     t.bigint "user_id"
     t.bigint "organization_id"
-    t.index ["branch_id"], name: "index_reservations_on_branch_id", unique: true
-    t.index ["organization_id"], name: "index_reservations_on_organization_id", unique: true
-    t.index ["user_id"], name: "index_reservations_on_user_id", unique: true
+    t.index ["branch_id"], name: "index_reservations_on_branch_id"
+    t.index ["organization_id"], name: "index_reservations_on_organization_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -113,10 +113,10 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.bigint "branch_id"
     t.bigint "workshop_id"
     t.bigint "organization_id"
-    t.index ["branch_id"], name: "index_reviews_on_branch_id", unique: true
-    t.index ["organization_id"], name: "index_reviews_on_organization_id", unique: true
-    t.index ["user_id"], name: "index_reviews_on_user_id", unique: true
-    t.index ["workshop_id"], name: "index_reviews_on_workshop_id", unique: true
+    t.index ["branch_id"], name: "index_reviews_on_branch_id"
+    t.index ["organization_id"], name: "index_reviews_on_organization_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["workshop_id"], name: "index_reviews_on_workshop_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "branch_id"
-    t.index ["branch_id"], name: "index_rooms_on_branch_id", unique: true
+    t.index ["branch_id"], name: "index_rooms_on_branch_id"
   end
 
   create_table "subscribes", force: :cascade do |t|
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "organization_id"
-    t.index ["organization_id"], name: "index_subscribes_on_organization_id", unique: true
-    t.index ["user_id"], name: "index_subscribes_on_user_id", unique: true
+    t.index ["organization_id"], name: "index_subscribes_on_organization_id"
+    t.index ["user_id"], name: "index_subscribes_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -183,8 +183,8 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.bigint "branch_id"
     t.bigint "organization_id"
-    t.index ["branch_id"], name: "index_workshops_on_branch_id", unique: true
-    t.index ["organization_id"], name: "index_workshops_on_organization_id", unique: true
+    t.index ["branch_id"], name: "index_workshops_on_branch_id"
+    t.index ["organization_id"], name: "index_workshops_on_organization_id"
   end
 
   create_table "workspaces", force: :cascade do |t|
