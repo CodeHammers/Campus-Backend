@@ -6,5 +6,6 @@ Rails.application.routes.draw do
       resources :branches do
         resources :rooms
       end  
+    resources :workshop
   end
 end
