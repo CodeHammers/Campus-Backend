@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @branch_rooms = Room.where(branch_id: params[:branch_id])
+    @branch_rooms = Room.GetBranchRooms(params[:branch_id])
 
     render json: @branch_rooms
   end

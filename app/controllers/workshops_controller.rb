@@ -3,8 +3,8 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops
   def index
-    @branch_workshops = Workshop.where(branch_id: params[:branch_id])
-
+    @branch_workshops = Workshop.GetWorkshopsByHostingBranch(params[:branch_id])
+    #what if we need to retrieve workshops by the organizing side? 
     render json: @branch_workshops
   end
 
