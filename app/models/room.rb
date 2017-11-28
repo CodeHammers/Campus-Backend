@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-    belongs_to :branch
+    belongs_to :branch ,required: true
 
     #A function to get all rooms that belongs to a certain workspace branch
     def self.branch_rooms(br_id)
@@ -7,5 +7,6 @@ class Room < ApplicationRecord
         return rooms
     end 
 
-    
+    validates :price ,:capacity ,precense: true
+
 end
