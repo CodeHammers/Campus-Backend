@@ -3,5 +3,5 @@ class Workspace < ApplicationRecord
 
     validates :name ,:logo, presence: true
     validates :name, uniqueness: true
-    
+
 end

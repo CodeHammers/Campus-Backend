@@ -7,6 +7,6 @@ class Room < ApplicationRecord
         return rooms
     end 
 
-    validates :price ,:capacity ,precense: true
+    #validates :price ,:capacity ,precense: true
 
 end

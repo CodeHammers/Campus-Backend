@@ -5,3 +5,50 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#Creating some workspaces 
+Makan  = Workspace.create(name: 'Makan', about:"We are Makan and we are the best")
+Khana  = Workspace.create(name: '3elm Khana', about:"We are 3elm Khana and we are the best")
+Zone   = Workspace.create(name: 'Zone', about:"We are Zone and we are the best")
+FabLab = Workspace.create(name: 'FabLab', about:"We are FabLab and we are the best") 
+
+#Creating some branches 
+MakanBr1 = Branch.create(numer_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "27856965",email: "Makan1@gmail.com",
+            workspace_id: Makan.id)
+
+MakanBr2 = Branch.create(numer_of_rooms: 5, address: "Nasr City, Cairo, Egypt", phone: "27852965",email: "Makan2@gmail.com",
+            workspace_id: Makan.id)
+
+MakanBr3 = Branch.create(numer_of_rooms: 4, address: "Nozha, Cairo, Egypt", phone: "27356965",email: "Makan3@gmail.com",
+            workspace_id: Makan.id)
+
+MakanBr4 = Branch.create(numer_of_rooms: 4, address: "Ramsis, Cairo, Egypt", phone: "27856925",email: "Makan4@gmail.com",
+            workspace_id: Makan.id)
+
+KhanaBr  = Branch.create(numer_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "245632635",email: "Khana@gmail.com",
+            workspace_id: Khana.id)
+
+FabLabBr = Branch.create(numer_of_rooms: 4, address: "Helioplis, Cairo, Egypt", phone: "21923654",email: "FabLab@gmail.com",
+            workspace_id: FabLab.id)
+
+ZoneBr   = Branch.create(numer_of_rooms: 4, address: "Abbasya, Cairo, Egypt", phone: "23126356",email: "Zone@gmail.com",
+            workspace_id: Zone.id)
+
+#Creating some rooms 
+Room.create(price:12, availability:1, capacity:20, services: "AC, wifi", branch_id: MakanBr1.id)
+Room.create(price:13, availability:1, capacity:5,  services: "AC, wifi", branch_id: MakanBr2.id)
+Room.create(price:20, availability:1, capacity:7,  services: "AC, wifi", branch_id: MakanBr3.id)
+Room.create(price:50, availability:1, capacity:50, services: "AC, wifi", branch_id: MakanBr4.id)
+Room.create(price:15, availability:1, capacity:10, services: "AC, wifi", branch_id: FabLabBr.id)
+Room.create(price:12, availability:1, capacity:16, services: "AC, wifi", branch_id: ZoneBr.id)
+Room.create(price:19, availability:1, capacity:20, services: "AC, wifi", branch_id: KhanaBr.id)
+
+#Creating some users
+User.create(name: "Mohammed", email: "Mohammed@gmail.com", password: "hackmeifyoucan")
+User.create(name: "Ahmed Gamal", email: "Ahmed@gmail.com", password: "hobalmath2shta8al")
+User.create(name: "Mina Magdy", email: "Magdy@gmail.com", password: "ma3lesh")
+User.create(name: "Omar Hashim", email: "OmarHashim@gmail.com", password: "mathgames?")
+User.create(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako")
+
+#Creating some events 
+#Event.create(title: "From zero to hero", description: "Become an expert", time: "")
