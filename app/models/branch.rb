@@ -1,5 +1,5 @@
 class Branch < ApplicationRecord
-    belongs_to :workspace, required: true
+    belongs_to :workspace
     has_many :rooms
     has_many :workshops
     has_many :reviews
@@ -8,5 +8,5 @@ class Branch < ApplicationRecord
     has_many :positions
     has_many :users, through: :positions
 
-    validates :address, :email, presence: true  
+    validates :address, presence: true  
 end

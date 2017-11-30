@@ -3,6 +3,8 @@ class Reservation < ApplicationRecord
     belongs_to :organization, optional: true
     belongs_to :branch
 
+    validates :start_time , :duration, :payment_status ,precense: true
+
     #A function to retrieve all reservations made by a certain organziation 
     def self.reservations_by_organization (org_id)
         reservations = Reservation.where(organization_id: org_id)

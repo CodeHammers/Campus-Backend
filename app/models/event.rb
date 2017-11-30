@@ -4,6 +4,8 @@ class Event < ApplicationRecord
     has_many :attends
     has_many :user, through: :attends
 
+    validates :title, :description, :time, :date, :date, :venue_name, :location, :shedule, presence: true
+
     #A function to get all events organized by a certain organization 
     def self.events_organized_by_organization org_id
         events = Event.where(organization_id: org_id)
