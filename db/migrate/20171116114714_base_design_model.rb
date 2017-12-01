@@ -44,7 +44,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
     create_table :rooms do |t|
       #attributes
       t.float   :price,        :null => false 
-      t.boolean :availability, :null =>false :default => true  
+      t.boolean :availability, :null =>false, :default => true  
       t.integer :capacity,     :null => false 
       t.text    :services,     :null => true  
       t.timestamps
