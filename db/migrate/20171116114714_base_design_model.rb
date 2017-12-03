@@ -107,7 +107,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.time    :start_time,         :null => false 
       t.float   :duration,           :null => false 
       t.boolean :payment_status,     :null => false 
-      t.integer :numer_of_attendees, :null => true  
+      t.integer :number_of_attendees, :null => true  
       t.timestamps
 
       #relations
