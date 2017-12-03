@@ -46,6 +46,6 @@ class BranchesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def branch_params
-      params.require(:branch).permit(:numer_of_rooms,:address,:phone,:email)
+      params.require(:branch).permit(:number_of_rooms,:address,:phone,:email)
     end
 end

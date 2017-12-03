@@ -28,7 +28,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
 
     create_table :branches do |t|
       #attributes
-      t.integer :numer_of_rooms, :null => false   
+      t.integer :number_of_rooms, :null => false   
       t.text    :services,       :null => true  
       t.string  :address,        :null => false 
       t.string  :phone,          :null => false 

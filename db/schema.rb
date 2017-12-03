@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   end
 
   create_table "branches", force: :cascade do |t|
-    t.integer "numer_of_rooms", null: false
+    t.integer "number_of_rooms", null: false
     t.text "services"
     t.string "address", null: false
     t.string "phone", null: false

@@ -52,3 +52,7 @@ User.create(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako")
 
 #Creating some events 
 #Event.create(title: "From zero to hero", description: "Become an expert", time: "")
+
+#creating some organization
+Organization.create(name:"ieee",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"flex",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad@sad.com")
