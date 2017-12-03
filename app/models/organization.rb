@@ -12,5 +12,10 @@ class Organization < ApplicationRecord
     validates :name , uniqueness: true
     validates :university ,:address ,:phone , presence: true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    
+
+    def self.organization_by_name(org_name)
+        org = Organization.where(name: org_name)
+        return org 
+    end 
+
 end

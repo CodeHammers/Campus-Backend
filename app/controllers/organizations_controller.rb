@@ -3,7 +3,11 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   def index
-    @organizations = Organization.all
+    if params[:name].nil? 
+      @organizations = Organization.organization_by_name(params[:name])
+    else
+      @organizations = Organization.all
+    end 
 
     render json: @organizations
   end

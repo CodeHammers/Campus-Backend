@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.text "services"
     t.string "address", null: false
     t.string "phone", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "photos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
 
   create_table "rooms", force: :cascade do |t|
     t.float "price", null: false
-    t.boolean "availability", null: false
+    t.boolean "availability", default: true, null: false
     t.integer "capacity", null: false
     t.text "services"
     t.datetime "created_at", null: false

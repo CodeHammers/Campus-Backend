@@ -3,7 +3,11 @@ class WorkspacesController < ApplicationController
 
   # GET /workspaces
   def index
-    @workspaces = Workspace.all
+    if params[:name].nil? 
+      @workspaces = Workspace.workspace_by_name(params[:name]) 
+    else
+      @workspaces = Workspace.all
+    end 
 
     render json: @workspaces
   end
