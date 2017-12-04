@@ -19,4 +19,9 @@ class Organization < ApplicationRecord
         return org 
     end 
 
+    def self.organization_by_part_of_name(prefix)
+        orgs = Organization.where("name LIKE :prefix", prefix: "#{prefix}%").to_a
+        return orgs 
+    end
+
 end

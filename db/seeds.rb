@@ -12,26 +12,27 @@ Khana  = Workspace.create(name: '3elm Khana', about:"We are 3elm Khana and we ar
 Zone   = Workspace.create(name: 'Zone', about:"We are Zone and we are the best")
 FabLab = Workspace.create(name: 'FabLab', about:"We are FabLab and we are the best") 
 
+
 #Creating some branches 
-MakanBr1 = Branch.create(numer_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "27856965",email: "Makan1@gmail.com",
+MakanBr1 = Branch.create(number_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "27856965",email: "Makan1@gmail.com",
             workspace_id: Makan.id)
 
-MakanBr2 = Branch.create(numer_of_rooms: 5, address: "Nasr City, Cairo, Egypt", phone: "27852965",email: "Makan2@gmail.com",
+MakanBr2 = Branch.create(number_of_rooms: 5, address: "Nasr City, Cairo, Egypt", phone: "27852965",email: "Makan2@gmail.com",
             workspace_id: Makan.id)
 
-MakanBr3 = Branch.create(numer_of_rooms: 4, address: "Nozha, Cairo, Egypt", phone: "27356965",email: "Makan3@gmail.com",
+MakanBr3 = Branch.create(number_of_rooms: 4, address: "Nozha, Cairo, Egypt", phone: "27356965",email: "Makan3@gmail.com",
             workspace_id: Makan.id)
 
-MakanBr4 = Branch.create(numer_of_rooms: 4, address: "Ramsis, Cairo, Egypt", phone: "27856925",email: "Makan4@gmail.com",
+MakanBr4 = Branch.create(number_of_rooms: 4, address: "Ramsis, Cairo, Egypt", phone: "27856925",email: "Makan4@gmail.com",
             workspace_id: Makan.id)
 
-KhanaBr  = Branch.create(numer_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "245632635",email: "Khana@gmail.com",
+KhanaBr  = Branch.create(number_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "245632635",email: "Khana@gmail.com",
             workspace_id: Khana.id)
 
-FabLabBr = Branch.create(numer_of_rooms: 4, address: "Helioplis, Cairo, Egypt", phone: "21923654",email: "FabLab@gmail.com",
+FabLabBr = Branch.create(number_of_rooms: 4, address: "Helioplis, Cairo, Egypt", phone: "21923654",email: "FabLab@gmail.com",
             workspace_id: FabLab.id)
 
-ZoneBr   = Branch.create(numer_of_rooms: 4, address: "Abbasya, Cairo, Egypt", phone: "23126356",email: "Zone@gmail.com",
+ZoneBr   = Branch.create(number_of_rooms: 4, address: "Abbasya, Cairo, Egypt", phone: "23126356",email: "Zone@gmail.com",
             workspace_id: Zone.id)
 
 #Creating some rooms 
@@ -55,4 +56,10 @@ User.create(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako")
 
 #creating some organization
 Organization.create(name:"ieee",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"ideta",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"ieef",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"ieeeg",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad@sad.com")
 Organization.create(name:"flex",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"flax",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"flen",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad@sad.com")
+Organization.create(name:"flexg",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad@sad.com")

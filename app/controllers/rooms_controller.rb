@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @branch_rooms = Room.branch_rooms(params[:branch_id])
-
+    @branch_rooms = Room.branch_rooms(params[:branch_id]) 
+    
     render json: @branch_rooms
   end
 

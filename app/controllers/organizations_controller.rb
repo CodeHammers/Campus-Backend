@@ -4,9 +4,9 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   def index
     if params[:name].nil? 
-      @organizations = Organization.organization_by_name(params[:name])
-    else
       @organizations = Organization.all
+    else
+      @organizations = Organization.organization_by_part_of_name(params[:name])
     end 
 
     render json: @organizations

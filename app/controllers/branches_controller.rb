@@ -3,8 +3,12 @@ class BranchesController < ApplicationController
 
   # GET /branches
   def index
-    @branches = Branch.all
-
+    if params[:name].nil? 
+      @branches = Branch.all
+    else 
+      @branches = Branch.get_branches_by_workspace_name(params[:name])
+    end 
+    
     render json: @branches
   end
 

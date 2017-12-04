@@ -4,9 +4,9 @@ class WorkspacesController < ApplicationController
   # GET /workspaces
   def index
     if params[:name].nil? 
-      @workspaces = Workspace.workspace_by_name(params[:name]) 
+       @workspaces = Workspace.all
     else
-      @workspaces = Workspace.all
+      @workspaces = Workspace.workspace_by_part_of_name(params[:name])
     end 
 
     render json: @workspaces
