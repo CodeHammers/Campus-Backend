@@ -16,8 +16,8 @@ class Branch < ApplicationRecord
   	end
 
     def self.get_branches_by_workspace_name(workspace_name)
-    	branches = Branch.execute_sql("select address,phone,email,services from branches as b, workspaces as w 
-     		where b.workspace_id = w.id and w.name = ?", workspace_name).to_a 
+        branches = Branch.execute_sql("select b.id, b.address, b.phone, b.email, b.services from branches as b, workspaces as w 
+            where b.workspace_id = w.id and w.name = ?", workspace_name).to_a 
     	return branches
     end
 end

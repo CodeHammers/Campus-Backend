@@ -6,7 +6,7 @@ class WorkspacesController < ApplicationController
     if params[:name].nil? 
        @workspaces = Workspace.all
     else
-      @workspaces = Workspace.workspace_by_part_of_name(params[:name])
+       @workspaces = Workspace.workspace_by_part_of_name(params[:name])
     end 
 
     render json: @workspaces
