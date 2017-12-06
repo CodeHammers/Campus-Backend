@@ -3,12 +3,8 @@ class BranchesController < ApplicationController
 
   # GET /branches
   def index
-    if params[:name].nil? 
-      @branches = Branch.all
-    else 
-      @branches = Branch.get_branches_by_workspace_name(params[:name])
-    end 
-    
+    @branches = Branch.get_all_branches(params[:workspace_id])
+
     render json: @branches
   end
 
@@ -45,7 +41,7 @@ class BranchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
-      @branch = Branch.find(params[:id])
+      @branch = Branch.get_branch(params[:id], params[:workspace_id])
     end
 
     # Only allow a trusted parameter "white list" through.

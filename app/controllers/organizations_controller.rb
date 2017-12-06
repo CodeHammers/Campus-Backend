@@ -3,8 +3,8 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   def index
-    if params[:name].nil? 
-      @organizations = Organization.all
+    if params[:name].nil?  
+      @organizations = Organization.get_all_organizations()
     else
       @organizations = Organization.organization_by_part_of_name(params[:name])
     end 
@@ -45,7 +45,7 @@ class OrganizationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
-      @organization = Organization.find(params[:id])
+      @organization = Organization.get_organization(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

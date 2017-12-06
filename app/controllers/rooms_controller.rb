@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @branch_rooms = Room.branch_rooms(params[:branch_id]) 
+    @branch_rooms = Room.get_all_rooms(params[:branch_id])
     
     render json: @branch_rooms
   end
@@ -41,7 +41,7 @@ class RoomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
+      @room = Room.get_room(params[:id], params[:branch_id])
     end
 
     # Only allow a trusted parameter "white list" through.

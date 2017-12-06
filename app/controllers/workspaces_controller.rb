@@ -4,7 +4,7 @@ class WorkspacesController < ApplicationController
   # GET /workspaces
   def index
     if params[:name].nil? 
-       @workspaces = Workspace.all
+       @workspaces = Workspace.get_all_workspaces()
     else
        @workspaces = Workspace.workspace_by_part_of_name(params[:name])
     end 
@@ -45,7 +45,7 @@ class WorkspacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workspace
-      @workspace = Workspace.find(params[:id])
+      @workspace = Workspace.get_workspace(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -11,7 +11,11 @@ Makan  = Workspace.create(name: 'Makan', about:"We are Makan and we are the best
 Khana  = Workspace.create(name: '3elm Khana', about:"We are 3elm Khana and we are the best")
 Zone   = Workspace.create(name: 'Zone', about:"We are Zone and we are the best")
 FabLab = Workspace.create(name: 'FabLab', about:"We are FabLab and we are the best") 
-
+Workspace.create(name: 'Maran', about:"We are Makan and we are the best")
+Workspace.create(name: 'Maaan', about:"We are Makan and we are the best")
+Workspace.create(name: 'Zane', about:"We are Zone and we are the best")
+Workspace.create(name: 'FavLab', about:"We are FabLab and we are the best") 
+Workspace.create(name: '32elm Khana', about:"We are 3elm Khana and we are the best")
 
 #Creating some branches 
 MakanBr1 = Branch.create(number_of_rooms: 4, address: "Dokki, Giza, Egypt", phone: "27856965",email: "Makan1@gmail.com",
@@ -37,12 +41,16 @@ ZoneBr   = Branch.create(number_of_rooms: 4, address: "Abbasya, Cairo, Egypt", p
 
 #Creating some rooms 
 Room.create(price:12, availability:1, capacity:20, services: "AC, wifi", branch_id: MakanBr1.id)
+Room.create(price:20, availability:1, capacity:15, services: "AC, wifi, lolipops", branch_id: MakanBr1.id)
 Room.create(price:13, availability:1, capacity:5,  services: "AC, wifi", branch_id: MakanBr2.id)
 Room.create(price:20, availability:1, capacity:7,  services: "AC, wifi", branch_id: MakanBr3.id)
 Room.create(price:50, availability:1, capacity:50, services: "AC, wifi", branch_id: MakanBr4.id)
 Room.create(price:15, availability:1, capacity:10, services: "AC, wifi", branch_id: FabLabBr.id)
+Room.create(price:17, availability:1, capacity:12, services: "AC, wifi", branch_id: FabLabBr.id)
 Room.create(price:12, availability:1, capacity:16, services: "AC, wifi", branch_id: ZoneBr.id)
+Room.create(price:10, availability:1, capacity:15, services: "AC, wifi", branch_id: ZoneBr.id)
 Room.create(price:19, availability:1, capacity:20, services: "AC, wifi", branch_id: KhanaBr.id)
+Room.create(price:17, availability:1, capacity:25, services: "AC, wifi", branch_id: KhanaBr.id)
 
 #Creating some users
 User.create(name: "Mohammed", email: "Mohammed@gmail.com", password: "hackmeifyoucan")
