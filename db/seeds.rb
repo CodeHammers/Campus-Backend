@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#starting a new session
+#db Clean Up
+Room.delete_all
+Branch.delete_all
+Workspace.delete_all
+User.delete_all
+Organization.delete_all
+
 #Creating some workspaces 
 Makan  = Workspace.create(name: 'Makan', about:"We are Makan and we are the best")
 Khana  = Workspace.create(name: '3elm Khana', about:"We are 3elm Khana and we are the best")
