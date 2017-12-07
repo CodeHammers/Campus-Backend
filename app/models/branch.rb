@@ -11,7 +11,7 @@ class Branch < ApplicationRecord
 
     validates :number_of_rooms,:address,:phone,:email, presence: true  
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-
+    validates :email , uniqueness: true
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     
    		connection.execute(send(:sanitize_sql_array, sql_array))
