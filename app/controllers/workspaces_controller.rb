@@ -1,6 +1,7 @@
 class WorkspacesController < ApplicationController
   before_action :set_workspace, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  
   # GET /workspaces
   def index
     if params[:name].nil? 

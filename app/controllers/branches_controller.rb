@@ -1,6 +1,7 @@
 class BranchesController < ApplicationController
   before_action :set_branch, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  
   # GET /branches
   def index
     @branches = Branch.get_all_branches(params[:workspace_id])

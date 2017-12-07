@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  
   # GET /rooms
   def index
     @branch_rooms = Room.get_all_rooms(params[:branch_id])
