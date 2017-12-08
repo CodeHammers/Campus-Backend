@@ -34,7 +34,7 @@ class Organization < ApplicationRecord
     #A function that's used by the organizations search bar, it retrieves all organizations with name prefixed with a user typed info
     #It also restricts data to only relevant ones
     def self.organization_by_part_of_name(prefix)
-        orgs = Organization.execute_sql("select o.id, o.name, o.university, o.logo from organizations as o where o.name like ?", prefix+"%").to_a 
+        orgs = Organization.execute_sql("select o.id, o.name, o.university, o.logo from organizations as o where lower(o.name) like ?", prefix.downcase+"%").to_a 
         return orgs 
     end
 

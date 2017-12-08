@@ -24,7 +24,7 @@ class Workspace < ApplicationRecord
 
     #A function to retrieve all workspaces with names that's prefixed with a user input (retrieval of only relevant data)
     def self.workspace_by_part_of_name(prefix)
-        workspaces = Workspace.execute_sql("select w.id, w.name, w.logo from workspaces as w where w.name like ?", prefix+"%").to_a 
+        workspaces = Workspace.execute_sql("select w.id, w.name, w.logo from workspaces as w where lower(w.name) like ?", prefix.downcase+"%").to_a 
         return workspaces
     end
   
