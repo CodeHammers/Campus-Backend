@@ -32,7 +32,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.text    :services,       :null => true  
       t.string  :address,        :null => false 
       t.string  :phone,          :null => false 
-      t.string  :email         
+      t.string  :email,          :null => true
       t.string  :photos,         :null => true   
       t.timestamps
 

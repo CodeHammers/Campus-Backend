@@ -81,12 +81,15 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.time "start_time", null: false
     t.float "salary"
+    t.string "title", null: false
     t.bigint "branch_id"
     t.bigint "user_id"
     t.bigint "organization_id"
+    t.bigint "workspace_id"
     t.index ["branch_id"], name: "index_positions_on_branch_id"
     t.index ["organization_id"], name: "index_positions_on_organization_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
+    t.index ["workspace_id"], name: "index_positions_on_workspace_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -206,6 +209,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   add_foreign_key "positions", "branches"
   add_foreign_key "positions", "organizations"
   add_foreign_key "positions", "users"
+  add_foreign_key "positions", "workspaces"
   add_foreign_key "reservations", "branches"
   add_foreign_key "reservations", "organizations"
   add_foreign_key "reservations", "users"

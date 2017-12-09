@@ -5,12 +5,13 @@ class BaseDesignRelation < ActiveRecord::Migration[5.1]
       t.timestamps
       t.time  :start_time ,:null => false  
       t.float :salary    ,:null => true 
-    
+      t.string :title    ,:null => false
 
       #relations
       t.belongs_to :branch , foreign_key: true
       t.belongs_to :user , foreign_key: true
-      t.belongs_to :organization , foreign_key: true      
+      t.belongs_to :organization , foreign_key: true 
+      t.belongs_to :workspace , foreign_key: true      
     end
     
 
