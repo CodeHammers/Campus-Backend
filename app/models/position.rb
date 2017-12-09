@@ -4,6 +4,8 @@ class Position < ApplicationRecord
     belongs_to :workspace ,optional: true
     belongs_to :user
 
+    validates :start_time, presence: true
+
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     
         connection.execute(send(:sanitize_sql_array, sql_array))

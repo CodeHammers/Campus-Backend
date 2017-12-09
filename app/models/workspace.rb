@@ -1,5 +1,4 @@
 class Workspace < ApplicationRecord
-
     has_many :branches
 
     validates :name, presence: true

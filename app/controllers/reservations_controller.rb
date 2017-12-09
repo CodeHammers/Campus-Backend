@@ -46,6 +46,6 @@ class ReservationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def reservation_params
-      params.require(:reservation).permit(:start_time,:duration,:payment_status)
+      params.require(:reservation).permit(:start_time, :duration, :payment_status, :number_of_attendees)
     end
 end
