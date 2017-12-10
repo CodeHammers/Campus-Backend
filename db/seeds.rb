@@ -89,3 +89,12 @@ Image.create(image_url: "https://i.imgur.com/uJQlrIv.jpg", room_id: 2)
 Image.create(image_url: "https://i.imgur.com/6j1JTOg.jpg", organization_id: 1)
 Image.create(image_url: "https://i.imgur.com/hLbd906.jpg", organization_id: 1)
 Image.create(image_url: "https://i.imgur.com/8D4IqYa.jpg", organization_id: 2)
+
+#Creating some reviews
+Review.create(feedback: "The best co-working space I have ever been to",rating: 5, branch_id: 1, user_id:1)
+Review.create(feedback: "Eh l 5ara dah oxem bellah",rating: 0.0, branch_id: 2, user_id:2)
+Review.create(feedback: "7elw 7elw",rating: 3.5, branch_id: 1, user_id:2)
+Review.create(feedback: "Not bad, not bad",rating: 2.5, branch_id: 2, user_id:3)
+Review.create(feedback: "Activity 3el2",rating: 3.5, organization_id: 1, user_id:2)
+Review.create(feedback: "ana baroo7 3ashan l banat",rating: 4.5, organization_id: 2, user_id:1)
+Review.create(feedback: "The best extracurricular activity ever",rating: 5, organization_id: 3, user_id:4)

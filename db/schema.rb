@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   create_table "attends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "event_id"
+    t.bigint "event_id" 
     t.bigint "user_id"
     t.index ["event_id"], name: "index_attends_on_event_id"
     t.index ["user_id"], name: "index_attends_on_user_id"

@@ -3,9 +3,9 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops
   def index
-    @branch_workshops = Workshop.workshops_at_Branch(params[:branch_id])
+    @workshops = Workshop.all
     #what if we need to retrieve workshops by the organizing side? 
-    render json: @branch_workshops
+    render json: @workshops
   end
 
   # GET /workshops/1
