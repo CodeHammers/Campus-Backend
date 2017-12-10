@@ -10,7 +10,7 @@ class PositionsController < ApplicationController
 
   # GET /positions/1
   def show
-    render json: @position
+    render json: @position 
   end
 
   # POST /positions

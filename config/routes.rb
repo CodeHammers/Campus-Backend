@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
     resources :images 
 
-    #api/user
-    resources :user do
-      #api/user/positions
+    #api/users
+    resources :users do
+      #api/users/positions
       resources :positions
     end
 
