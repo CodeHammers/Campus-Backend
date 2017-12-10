@@ -17,7 +17,7 @@ class BranchesController < ApplicationController
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
-
+    @position = Position.new(user_id:current_user.id,organizaion_id:branch.id,title:"owner")    
     if @branch.save
       render json: @branch, status: :created, location: @branch
     else
