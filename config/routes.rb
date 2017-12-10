@@ -17,6 +17,14 @@ Rails.application.routes.draw do
     #api/workshops/	 
     resources :workshops
 
+
     resources :images 
+
+    #api/user
+    resources :user do
+      #api/user/positions
+      resources :positions
+    end
+
   end
 end
