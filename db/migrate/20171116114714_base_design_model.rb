@@ -127,5 +127,18 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
 
     end
 
+    create_table :images do |t|
+
+      #attributes
+      t.string :image_url, :null => false
+      t.text :description 
+
+      #relations
+      t.belongs_to :room, foreign_key: true 
+      t.belongs_to :workshop, foreign_key: true
+      t.belongs_to :event, foreign_key: true 
+      t.belongs_to :organization, foreign_key: true 
+    end
+
   end
 end

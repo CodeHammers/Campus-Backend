@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
     #api/workshops/	 
     resources :workshops
+
+    resources :images 
   end
 end
