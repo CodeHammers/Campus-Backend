@@ -7,12 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #starting a new session
-#db Clean Up
-Room.delete_all
-Branch.delete_all
-Workspace.delete_all
-User.delete_all
-Organization.delete_all
+#db Clean 
+
+#Room.delete_all
+#Branch.delete_all
+#Workspace.delete_all
+#User.delete_all
+#Organization.delete_all
 
 #Creating some workspaces 
 Makan  = Workspace.create(name: 'Makan', about:"We are Makan and we are the best")
@@ -79,3 +80,21 @@ Organization.create(name:"flex",address:"ay mkan fel giza",phone:"01235256",univ
 Organization.create(name:"flax",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad6@sad.com")
 Organization.create(name:"flen",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad7@sad.com")
 Organization.create(name:"flexg",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad8@sad.com")
+
+#Creating some images 
+Image.create(image_url: "https://i.imgur.com/lFz6I9i.jpg", room_id: 1)
+Image.create(image_url: "https://i.imgur.com/Hecb6kU.jpg", room_id: 2)
+Image.create(image_url: "https://i.imgur.com/2knOYqa.jpg", room_id: 1)
+Image.create(image_url: "https://i.imgur.com/uJQlrIv.jpg", room_id: 2)
+Image.create(image_url: "https://i.imgur.com/6j1JTOg.jpg", organization_id: 1)
+Image.create(image_url: "https://i.imgur.com/hLbd906.jpg", organization_id: 1)
+Image.create(image_url: "https://i.imgur.com/8D4IqYa.jpg", organization_id: 2)
+
+#Creating some reviews
+Review.create(feedback: "The best co-working space I have ever been to",rating: 5, branch_id: 1, user_id:1)
+Review.create(feedback: "Eh l 5ara dah oxem bellah",rating: 0.0, branch_id: 2, user_id:2)
+Review.create(feedback: "7elw 7elw",rating: 3.5, branch_id: 1, user_id:2)
+Review.create(feedback: "Not bad, not bad",rating: 2.5, branch_id: 2, user_id:3)
+Review.create(feedback: "Activity 3el2",rating: 3.5, organization_id: 1, user_id:2)
+Review.create(feedback: "ana baroo7 3ashan l banat",rating: 4.5, organization_id: 2, user_id:1)
+Review.create(feedback: "The best extracurricular activity ever",rating: 5, organization_id: 3, user_id:4)

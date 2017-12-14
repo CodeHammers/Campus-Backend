@@ -2,6 +2,7 @@ class Workshop < ApplicationRecord
     belongs_to :branch , optional: true
     belongs_to :organization, optional: true
     has_many :reveiws
+    has_many :image 
 
     #A function to get all workshops organized by a certain organization 
     def self.workshops_by_organziation (org_id)

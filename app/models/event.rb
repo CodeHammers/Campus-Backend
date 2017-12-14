@@ -2,6 +2,7 @@ class Event < ApplicationRecord
     belongs_to :organization
 
     has_many :attends
+    has_many :image 
     has_many :user, through: :attends
 
     validates :title, :description, :time, :date, :venue_name, :location, :shedule, presence: true

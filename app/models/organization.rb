@@ -3,6 +3,7 @@ class Organization < ApplicationRecord
     has_many :workshops 
     has_many :reservations 
     has_many :events
+    has_many :image
 
     has_many :subscribes
     has_many :users, through: :subscribes
@@ -29,6 +30,7 @@ class Organization < ApplicationRecord
     #A function to get all organizations (retrieval of only relevant data)  
     def self.get_all_organizations()
         orgs = Organization.execute_sql("select o.id, o.name, o.university, o.logo from organizations as o").to_a 
+        return orgs
     end
 
     #A function that's used by the organizations search bar, it retrieves all organizations with name prefixed with a user typed info

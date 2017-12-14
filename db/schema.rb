@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   create_table "attends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "event_id"
+    t.bigint "event_id" 
     t.bigint "user_id"
     t.index ["event_id"], name: "index_attends_on_event_id"
     t.index ["user_id"], name: "index_attends_on_user_id"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.index ["event_id"], name: "index_identified_by_on_event_id"
     t.index ["organization_id"], name: "index_identified_by_on_organization_id"
     t.index ["workshop_id"], name: "index_identified_by_on_workshop_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image_url", null: false
+    t.text "description"
+    t.bigint "room_id"
+    t.bigint "workshop_id"
+    t.bigint "event_id"
+    t.bigint "organization_id"
+    t.index ["event_id"], name: "index_images_on_event_id"
+    t.index ["organization_id"], name: "index_images_on_organization_id"
+    t.index ["room_id"], name: "index_images_on_room_id"
+    t.index ["workshop_id"], name: "index_images_on_workshop_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -206,6 +219,10 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   add_foreign_key "identified_by", "events"
   add_foreign_key "identified_by", "organizations"
   add_foreign_key "identified_by", "workshops"
+  add_foreign_key "images", "events"
+  add_foreign_key "images", "organizations"
+  add_foreign_key "images", "rooms"
+  add_foreign_key "images", "workshops"
   add_foreign_key "positions", "branches"
   add_foreign_key "positions", "organizations"
   add_foreign_key "positions", "users"
