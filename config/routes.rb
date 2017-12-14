@@ -34,5 +34,7 @@ Rails.application.routes.draw do
       resources :positions
     end
 
+    get 'auth/workspaces', to: 'workspaces#index_secure'
+
   end
 end

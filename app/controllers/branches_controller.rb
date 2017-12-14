@@ -9,6 +9,7 @@ class BranchesController < ApplicationController
     render json: @branches
   end
 
+
   # GET /branches/1
   def show
     render json: @branch

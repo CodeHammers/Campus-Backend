@@ -20,6 +20,7 @@ class Workspace < ApplicationRecord
         workspaces = Workspace.execute_sql("select w.id, w.name, w.logo from workspaces as w").to_a 
         return workspaces
     end
+ 
 
     #A function to retrieve all workspaces with names that's prefixed with a user input (retrieval of only relevant data)
     def self.workspace_by_part_of_name(prefix)

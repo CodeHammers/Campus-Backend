@@ -1,6 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :set_workspace, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
   
   # GET /workspaces
   def index
@@ -11,6 +11,11 @@ class WorkspacesController < ApplicationController
     end 
 
     render json: @workspaces
+  end
+
+  def index_secure
+    @managed_workspaces =  Position.get_positons_workspace(current_user.user_id)
+    render json: @managed_workspaces
   end
 
   # GET /workspaces/1
