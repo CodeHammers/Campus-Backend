@@ -18,7 +18,7 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.new(workshop_params)
 
     if @workshop.save
-      render json: @workshop, status: :created, location: @workshop
+      head :ok
     else
       render json: @workshop.errors, status: :unprocessable_entity
     end

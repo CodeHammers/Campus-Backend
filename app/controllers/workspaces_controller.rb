@@ -29,7 +29,7 @@ class WorkspacesController < ApplicationController
     @position = Position.new(user_id:current_user.id, organizaion_id: workspace.id, title:"owner")    
     
     if @workspace.save
-      render json: @workspace, status: :created, location: @workspace
+      head :ok
     else
       render json: @workspace.errors, status: :unprocessable_entity
     end

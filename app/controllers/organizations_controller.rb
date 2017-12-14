@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
     @position = Position.new(user_id:current_user.id, organizaion_id:organization.id, title:"owner")
     
     if @organization.save
-      render json: @organization, status: :created, location: @organization
+      head :ok
     else
       render json: @organization.errors, status: :unprocessable_entity
     end

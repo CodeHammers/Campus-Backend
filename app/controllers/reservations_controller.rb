@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      head :ok
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end

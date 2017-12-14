@@ -18,7 +18,7 @@ class PositionsController < ApplicationController
     @position = Position.new(position_params)
 
     if @position.save
-      render json: @position, status: :created, location: @position
+      head :ok
     else
       render json: @position.errors, status: :unprocessable_entity
     end
