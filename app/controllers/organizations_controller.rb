@@ -13,6 +13,11 @@ class OrganizationsController < ApplicationController
     render json: @organizations
   end
 
+  def index_secure
+    @managed_orgnizations =  Position.get_positons_organization(current_user.user_id)
+    render json: @managed_orgnizations
+  end
+
   # GET /organizations/1
   def show
     render json: @organization

@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     end
 
     get 'auth/workspaces', to: 'workspaces#index_secure'
+    get 'auth/organizations', to: 'organizations#index_secure'
+    get 'auth/branches', to: 'branches#index_secure'
 
   end
 end
