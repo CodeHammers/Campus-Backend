@@ -13,16 +13,16 @@ class Position < ApplicationRecord
 
     #A function to get the workspaces names that user has position in it
     def self.get_positons_workspace(user_id)
-        Position.execute_sql("select p.salary, p.title, p.start_time ,w.name from positions as p ,workspaces as w where p.workspace_id != null and p.user_id=?",user_id ).to_a
+        Position.execute_sql("select p.salary, p.title, p.start_time ,w.name from positions as p ,workspaces as w where p.workspace_id = w.id and p.user_id=?",user_id ).to_a
     end
     
     #A function to get the workspaces names that user has position in it
     def self.get_positons_organization(user_id)
-        Position.execute_sql("select p.salary, p.title, p.start_time ,o.name from positions as p ,organizations as o where p.organization_id != null and p.user_id=?",user_id ).to_a
+        Position.execute_sql("select p.salary, p.title, p.start_time ,o.name from positions as p ,organizations as o where p.organization_id = o.id and p.user_id=?",user_id ).to_a
     end
     
     #A function to get the workspaces names that user has position in it
     def self.get_positons_branch(user_id)
-        Position.execute_sql("select p.salary, p.title, p.start_time ,b.name from positions as p ,branches as b where p.branch_id != null and p.user_id=?",user_id ).to_a
+        Position.execute_sql("select p.salary, p.title, p.start_time ,b.name from positions as p ,branches as b where p.branch_id = b.id and p.user_id=?",user_id ).to_a
     end
 end

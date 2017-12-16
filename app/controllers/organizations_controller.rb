@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
 
   def index_secure
     @managed_orgnizations =  Position.get_positons_organization(current_user.id)
+    pp @managed_orgnizations
     render json: @managed_orgnizations
   end
 
