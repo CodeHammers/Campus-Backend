@@ -14,7 +14,7 @@ class WorkspacesController < ApplicationController
   end
 
   def index_secure
-    @managed_workspaces =  Position.get_positons_workspace(current_user.user_id)
+    @managed_workspaces =  Position.get_positons_workspace(current_user.id)
     render json: @managed_workspaces
   end
 

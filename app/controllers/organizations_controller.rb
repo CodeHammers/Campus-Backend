@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
     
   # GET /organizations
   def index
@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
   end
 
   def index_secure
-    @managed_orgnizations =  Position.get_positons_organization(current_user.user_id)
+    @managed_orgnizations =  Position.get_positons_organization(current_user.id)
     render json: @managed_orgnizations
   end
 
@@ -26,9 +26,9 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   def create
     @organization = Organization.new(organization_params)
-    @position = Position.new(user_id:current_user.id, organizaion_id:organization.id, title:"owner")
+    @position = Position.new(user_id:current_user.id, organization_id:organization.id, title:"owner")
     
-    if @organization.save
+    if @organization.save && @position.save
       head :ok
     else
       render json: @organization.errors, status: :unprocessable_entity
