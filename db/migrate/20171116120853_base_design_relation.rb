@@ -3,7 +3,6 @@ class BaseDesignRelation < ActiveRecord::Migration[5.1]
     create_table :positions do |t|
       #attributes
       t.timestamps
-      t.time  :start_time ,:null => false  
       t.float :salary    ,:null => true 
       t.string :title    ,:null => false
 

@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   create_table "positions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "start_time", null: false
     t.float "salary"
     t.string "title", null: false
     t.bigint "branch_id"

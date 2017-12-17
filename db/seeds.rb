@@ -110,9 +110,9 @@ Review.create!(feedback: "The best extracurricular activity ever",rating: 5, org
 	user_id:User.all.to_a.sample.id)
 
 id = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
-Position.create!(user_id: u_id, organization_id: id, title:"owner" ,start_time:Time.now)
+Position.create!(user_id: u_id, organization_id: id, title:"owner" )
 
 
 id = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
-Position.create!(user_id: u_id, organization_id: id, title:"owner" ,start_time:Time.now)
+Position.create!(user_id: u_id, organization_id: id, title:"owner" )
 
