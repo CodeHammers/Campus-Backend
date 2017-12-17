@@ -3,8 +3,14 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops
   def index
-    @workshops = Workshop.all
-    #what if we need to retrieve workshops by the organizing side? 
+    if params[:branch_id].present? and params[:organization_id].present?
+      @workshops = Workshop.workshops_by_branch_and_organization(params[:branch_id], params[:organization_id])
+    elsif params[:branch_id].present?
+      @workshops = Workshop.workshops_host_at_Branch(params[:branch_id])
+    else
+      @workshops = Workshop.workshops_made_by_organziation(params[:organization_id])
+    end
+
     render json: @workshops
   end
 
@@ -15,7 +21,7 @@ class WorkshopsController < ApplicationController
 
   # POST /workshops
   def create
-    @workshop = Workshop.new(workshop_params)
+    @workshop = Workshop.new(workshop_params) 
 
     if @workshop.save
       head :ok
@@ -41,7 +47,7 @@ class WorkshopsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workshop
-      @workshop = Workshop.find(params[:id])
+      @workshop = Workshop.get_workshop(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -5,22 +5,31 @@ class Reservation < ApplicationRecord
 
     validates :start_time , :duration, :payment_status ,presence: true
 
-    #A function to retrieve all reservations made by a certain organziation 
-    def self.reservations_by_organization (org_id)
-        reservations = Reservation.where(organization_id: org_id)
-        return reservations
-    end 
-
-    #A function to retrieve all reservations made by a certain user (if applicable)
-    def self.reservations_by_user (u_id)
-        reservations = Reservation.where(user_id: u_id)
-        return reservations
-    end 
-
-    #A function to retrieve all reservations made to a certain branch 
-    def self.get_reservations_by_branch (b_id)
-        reservations = Reservation.where(branch_id: b_id)
-        return reservations
+    #A function to enable using raw sql queries
+    def self.execute_sql(*sql_array)     
+        connection.execute(send(:sanitize_sql_array, sql_array))
     end
 
+    #A function to get all reservations at a workspace branch
+    def self.reservations_at_branch(branch_id)
+        reservations = Reservation.execute_sql("select * from reservations as r where r.branch_id = ?", branch_id).to_a
+        return reservations 
+    end
+    
+    #A function to get all reservations made by a user
+    def self.reservations_by_user(user_id)
+        reservations = Reservation.execute_sql("select * from reservations as r where r.user_id = ?",user_id).to_a
+        return reservations 
+    end
+
+    #A function to get all reservations made by a user at a certain branch 
+    def self.reservations_by_user_at_branch(user_id, branch_id)
+        
+    end
+
+    #A function to get all reservations made by an organization 
+    def self.reservations_by_organizations(org_id)
+        reservations = Reservation.execute_sql("select * from reservations as r where r.organization_id = ?",org_id).to_a
+        return reservations
+    end
 end

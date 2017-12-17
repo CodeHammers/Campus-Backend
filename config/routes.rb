@@ -7,24 +7,28 @@ Rails.application.routes.draw do
     resources :organizations do 
       #api/organizations/reviews
       resources :reviews
+      #api/organizations/workshops
+      resources :workshops do 
+        #api/organizations/workshops/reviews
+        resources :reviews
+      end
     end 
 
     #api/workspaces/ 
     resources :workspaces do
-      #api/workspaces/branches/
+      #api/workspaces/branches
       resources :branches do
-        #api/workspaces/branches/rooms/
+        #api/workspaces/branches/rooms
         resources :rooms
         #api/workspaces/branches/reviews
         resources :reviews
+        #api/workspaces/branches/workshops
+        resources :workshops do
+            #api/workspaces/branches/workshops/reviews
+            resources :reviews
+        end
       end 
     end 
-
-    #api/workshops/	 
-    resources :workshops do
-      #api/workshops/reviews
-      resources :reviews
-    end
 
     resources :images 
 

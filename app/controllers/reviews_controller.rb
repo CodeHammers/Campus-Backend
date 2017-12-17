@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   def index
     if params[:branch_id].present?
-      @reviews = Review.get_all_branch_reviews(params[:branch_id])
+      @reviews = Review.get_all_branch_reviews(params[:branch_id]) 
     elsif params[:workshop_id].present?
       @reviews = Review.get_all_workshop_reviews(params[:workshop_id])
     else
