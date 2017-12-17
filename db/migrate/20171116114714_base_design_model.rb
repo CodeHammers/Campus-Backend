@@ -7,7 +7,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.text   :description,    :null => true 
       t.string :university,     :null => false 
       t.string :logo,           :null => true  
-      t.string :address,        :null => false 
       t.string :phone,          :null => false 
       t.string :email,          :null => false 
       t.text   :event_schedule, :null => true  

@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.text "description"
     t.string "university", null: false
     t.string "logo"
-    t.string "address", null: false
     t.string "phone", null: false
     t.string "email", null: false
     t.text "event_schedule"

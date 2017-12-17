@@ -8,6 +8,7 @@
 
 #starting a new session
 #db Clean 
+Position.delete_all
 Review.delete_all
 Image.delete_all
 Room.delete_all
@@ -73,14 +74,14 @@ u_id = User.create!(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma
 #Event.create!(title: "From zero to hero", description: "Become an expert", time: "")
 
 #creating some organization
-Organization.create!(name:"ieee",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad1@sad.com")
-Organization.create!(name:"ideta",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad2@sad.com")
-Organization.create!(name:"ieef",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad3@sad.com")
-Organization.create!(name:"ieeeg",address:"ay mkan",phone:"0123456",university:"cairo",email:"sad4@sad.com")
-Organization.create!(name:"flex",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad5@sad.com")
-Organization.create!(name:"flax",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad6@sad.com")
-Organization.create!(name:"flen",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad7@sad.com")
-Organization.create!(name:"flexg",address:"ay mkan fel giza",phone:"01235256",university:"cairo",email:"sad8@sad.com")
+Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com")
+Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com")
+Organization.create!(name:"ieef",phone:"0123456",university:"cairo",email:"sad3@sad.com")
+Organization.create!(name:"ieeeg",phone:"0123456",university:"cairo",email:"sad4@sad.com")
+Organization.create!(name:"flex",phone:"01235256",university:"cairo",email:"sad5@sad.com")
+Organization.create!(name:"flax",phone:"01235256",university:"cairo",email:"sad6@sad.com")
+Organization.create!(name:"flen",phone:"01235256",university:"cairo",email:"sad7@sad.com")
+Organization.create!(name:"flexg",phone:"01235256",university:"cairo",email:"sad8@sad.com")
 
 #Creating some images 
 #it's not guaranteed that room ids are 1 2 3 4 , deletions make shifts in ids 
@@ -108,10 +109,10 @@ Review.create!(feedback: "ana baroo7 3ashan l banat",rating: 4.5, organization_i
 Review.create!(feedback: "The best extracurricular activity ever",rating: 5, organization_id: Organization.all.to_a.sample.id, 
 	user_id:User.all.to_a.sample.id)
 
-id = Organization.create!(name: "kvector",address:"No Where",phone:"32323233323",university:"Helwan",email:"none@none.com").id
+id = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
 Position.create!(user_id: u_id, organization_id: id, title:"owner" ,start_time:Time.now)
 
 
-id = Organization.create!(name: "HIH",address:"Any Where",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
+id = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
 Position.create!(user_id: u_id, organization_id: id, title:"owner" ,start_time:Time.now)
 

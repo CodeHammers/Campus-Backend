@@ -27,7 +27,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   def create
     @organization = Organization.new(organization_params)
-    @position = Position.new(user_id:current_user.id, organization_id:organization.id, title:"owner")
+    @position = Position.new(user_id:current_user.id, organization_id:@organization.id, title:"owner")
     
     if @organization.save && @position.save
       head :ok
@@ -58,6 +58,6 @@ class OrganizationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def organization_params
-      params.require(:organization).permit(:name, :description, :univerity, :logo, :address, :phone, :email, :event_schedule)
+      params.require(:organization).permit(:name, :description, :university, :logo, :address, :phone, :email, :event_schedule)
     end
 end
