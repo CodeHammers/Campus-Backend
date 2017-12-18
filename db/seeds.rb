@@ -8,14 +8,17 @@
 
 #starting a new session
 #db Clean 
-#Position.delete_all
-#Review.delete_all
-#Image.delete_all
-#Room.delete_all
-#Branch.delete_all
-#Workspace.delete_all
-#User.delete_all
-#Organization.delete_all
+Event.delete_all
+Image.delete_all
+Review.delete_all
+Workshop.delete_all
+Image.delete_all
+Position.delete_all
+Room.delete_all
+Branch.delete_all
+Workspace.delete_all
+User.delete_all
+Organization.delete_all
 
 #Creating some workspaces 
 Makan  = Workspace.create!(name: 'Makan', about:"We are Makan and we are the best")
@@ -71,14 +74,14 @@ User.create!(name: "Omar Hashim", email: "OmarHashim@gmail.com", password: "math
 u_id = User.create!(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako").id
 
 #creating some organization
-Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com",address: "Cairo")
-Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com",address: "Giza")
-Organization.create!(name:"ieef",phone:"0123456",university:"cairo",email:"sad3@sad.com",address: "Assuit")
-Organization.create!(name:"ieeeg",phone:"0123456",university:"cairo",email:"sad4@sad.com",address: "Cairo")
-Organization.create!(name:"flex",phone:"01235256",university:"cairo",email:"sad5@sad.com",address: "Luxor")
-Organization.create!(name:"flax",phone:"01235256",university:"cairo",email:"sad6@sad.com",address: "Aswan")
-Organization.create!(name:"flen",phone:"01235256",university:"cairo",email:"sad7@sad.com",address: "Alex")
-Organization.create!(name:"flexg",phone:"01235256",university:"cairo",email:"sad8@sad.com",address: "Sinai")
+Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com")
+Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com")
+Organization.create!(name:"ieef",phone:"0123456",university:"cairo",email:"sad3@sad.com")
+Organization.create!(name:"ieeeg",phone:"0123456",university:"cairo",email:"sad4@sad.com")
+Organization.create!(name:"flex",phone:"01235256",university:"cairo",email:"sad5@sad.com")
+Organization.create!(name:"flax",phone:"01235256",university:"cairo",email:"sad6@sad.com")
+Organization.create!(name:"flen",phone:"01235256",university:"cairo",email:"sad7@sad.com")
+Organization.create!(name:"flexg",phone:"01235256",university:"cairo",email:"sad8@sad.com")
 
 #Creating some images 
 #it's not guaranteed that room ids are 1 2 3 4 , deletions make shifts in ids 
@@ -153,11 +156,11 @@ Review.create!(feedback: "OOP sucks, Linus Travold sends his regards ha3ha3ha3",
 
 #Creating some positions
 idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
-Position.create!(user_id: u_id, organization_id: idK, title:"owner", start_time:Date.parse("Nov 2 2015"))
+Position.create!(user_id: u_id, organization_id: idK, title:"owner")
 
 
 idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
-Position.create!(user_id: u_id, organization_id: idH, title:"owner",start_time:Date.parse("Dec 2 2017"))
+Position.create!(user_id: u_id, organization_id: idH, title:"owner")
 
 Workshop.create!(title:"How to become a vector", description:"To infinity and what's beyond", date: Date.parse("Dec 27 2018"),
                  time: Time.parse("15:00"), branch_id: MakanBr3.id, organization_id:idK)
