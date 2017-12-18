@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     has_many :image 
     has_many :user, through: :attends
 
-    validates :title, :description, :time, :date, :venue_name, :location, :schedule, presence: true
+    validates :title, :description, :date, :venue_name, :location, :schedule, presence: true
 
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     

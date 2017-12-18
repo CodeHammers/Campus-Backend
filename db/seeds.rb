@@ -106,20 +106,20 @@ Image.create!(image_url: "https://i.imgur.com/sFUb7cl.jpg", organization_id:  Or
 
 #Creating some workshops
 Ardunio = Workshop.create!(title:"Ardunio from zero to hero", description:"you will learn shit actually!", date: Date.parse("Dec 30 2017"),
-                 time: Time.parse("12:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+                  branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
 
 OOP = Workshop.create!(title:"Learn OOP like a boss", description:"you will be a boss!", date: Date.parse("Feb 3 2018"),
-                 time: Time.parse("14:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+                  branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
 
 Workshop.create!(title:"3D printing FTW!", description:"3D print anything", date: Date.parse("May 30 2018"),
-                 time: Time.parse("12:15"), branch_id: FabLabBr.id, organization_id:Organization.all.to_a.sample.id)
+                 branch_id: FabLabBr.id, organization_id:Organization.all.to_a.sample.id)
 
 KillBoss = Workshop.create!(title:"How to kill your boss", description:"Get rid of that bit**", date: Date.parse("Jan 1 2018"),
-                 time: Time.parse("20:05"), branch_id: KhanaBr.id, organization_id:Organization.all.to_a.sample.id)
+                  branch_id: KhanaBr.id, organization_id:Organization.all.to_a.sample.id)
 
 
 Git = Workshop.create!(title:"Git started", description:"Learn github", date: Date.parse("Dec 29 2017"),
-                 time: Time.parse("15:00"), branch_id: ZoneBr.id, organization_id:Organization.all.to_a.sample.id)
+                  branch_id: ZoneBr.id, organization_id:Organization.all.to_a.sample.id)
 
 #Creating some reviews (branches)
 Review.create!(feedback: "The best co-working space I have ever been to",rating: 5, branch_id:  Branch.all.to_a.sample.id,user_id: User.all.to_a.sample.id)
@@ -163,21 +163,21 @@ idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",e
 Position.create!(user_id: u_id, organization_id: idH, title:"owner")
 
 Workshop.create!(title:"How to become a vector", description:"To infinity and what's beyond", date: Date.parse("Dec 27 2018"),
-                 time: Time.parse("15:00"), branch_id: MakanBr3.id, organization_id:idK)
+                  branch_id: MakanBr3.id, organization_id:idK)
 
 Workshop.create!(title:"Fundraise like a begger!", description:"Learn the art of begging", date: Date.parse("Jan 5 2018"),
-                 time: Time.parse("13:00"), branch_id: MakanBr4.id, organization_id:idH)
+                  branch_id: MakanBr4.id, organization_id:idH)
 
 #creating some events
-Event.create!(title: "2018 opening", description: "kvector opening", time:Time.parse("12:00"), date:Date.parse("Jan 1 2018"),
+Event.create!(title: "2018 opening", description: "kvector opening", date:Date.parse("Jan 1 2018"),
       venue_name: "Makan workspace", location:"Giza", schedule:"rabak yeshlha ba2a ha2olak ba3den", organization_id:idK, 
       branch_id:MakanBr1.id)
 
-Event.create!(title: "Schrodinger's cat unboxing", description: "I hope it's not dead", time:Time.parse("12:00"), date:Date.parse("Jan 1 2018"),
+Event.create!(title: "Schrodinger's cat unboxing", description: "I hope it's not dead",  date:Date.parse("Jan 1 2018"),
       venue_name: "Zone workspace", location:"Cairo", schedule:"We will open the box, service the cat and leave", organization_id:idH, 
       branch_id:ZoneBr.id)
 
-Event.create!(title: "Job Fair", description: "Job Fair", time:Time.parse("12:00"), date:Date.parse("Dec 21 2017"),
+Event.create!(title: "Job Fair", description: "Job Fair",  date:Date.parse("Dec 21 2017"),
       venue_name: "FabLab workspace", location:"Giza", schedule:"jobs ya negm", organization_id:Organization.all.to_a.sample.id, 
       branch_id:FabLabBr.id)
 
