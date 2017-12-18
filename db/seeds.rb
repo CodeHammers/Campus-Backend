@@ -70,9 +70,6 @@ User.create!(name: "Mina Magdy", email: "Magdy@gmail.com", password: "ma3lesh323
 User.create!(name: "Omar Hashim", email: "OmarHashim@gmail.com", password: "mathgames?")
 u_id = User.create!(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako").id
 
-#Creating some events 
-#Event.create!(title: "From zero to hero", description: "Become an expert", time: "")
-
 #creating some organization
 Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com",address: "Cairo")
 Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com",address: "Giza")
@@ -138,3 +135,16 @@ Workshop.create!(title:"Git started", description:"Learn github", date: Date.par
 
 Workshop.create!(title:"Fundraise like a begger!", description:"Learn the art of begging", date: Date.parse("Jan 5 2018"),
                  time: Time.parse("13:00"), branch_id: MakanBr4.id, organization_id:idH)
+
+#creating some events
+Event.create!(title: "2018 opening", description: "kvector opening", time:Time.parse("12:00"), date:Date.parse("Jan 1 2018"),
+      venue_name: "Makan workspace", location:"Giza", schedule:"rabak yeshlha ba2a ha2olak ba3den", organization_id:idK, 
+      branch_id:MakanBr1.id)
+
+Event.create!(title: "Schrodinger's cat unboxing", description: "I hope it's not dead", time:Time.parse("12:00"), date:Date.parse("Jan 1 2018"),
+      venue_name: "Zone workspace", location:"Cairo", schedule:"We will open the box, service the cat and leave", organization_id:idH, 
+      branch_id:ZoneBr.id)
+
+Event.create!(title: "Job Fair", description: "Job Fair", time:Time.parse("12:00"), date:Date.parse("Dec 21 2017"),
+      venue_name: "FabLab workspace", location:"Giza", schedule:"jobs ya negm", organization_id:Organization.all.to_a.sample.id, 
+      branch_id:FabLabBr.id)

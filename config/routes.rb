@@ -12,6 +12,9 @@ Rails.application.routes.draw do
         #api/organizations/workshops/reviews
         resources :reviews
       end
+      resources :events do
+            resources :reviews
+        end
     end 
 
     #api/workspaces/ 
@@ -25,6 +28,9 @@ Rails.application.routes.draw do
         #api/workspaces/branches/workshops
         resources :workshops do
             #api/workspaces/branches/workshops/reviews
+            resources :reviews
+        end
+        resources :events do
             resources :reviews
         end
       end 

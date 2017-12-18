@@ -3,7 +3,11 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    if params[:branch_id].present?
+      @events = Event.get_all_events_held_at_branch(params[:branch_id])
+    else
+      @events = Event.get_all_events_organized_by_org(params[:organization_id])
+    end
 
     render json: @events
   end
@@ -41,7 +45,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.get_event(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
