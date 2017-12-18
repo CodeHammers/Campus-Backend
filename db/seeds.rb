@@ -90,7 +90,24 @@ Image.create!(image_url: "https://i.imgur.com/6j1JTOg.jpg", organization_id:  Or
 Image.create!(image_url: "https://i.imgur.com/hLbd906.jpg", organization_id:  Organization.all.to_a.sample.id)
 Image.create!(image_url: "https://i.imgur.com/8D4IqYa.jpg", organization_id:  Organization.all.to_a.sample.id)
 
-#Creating some reviews
+#Creating some workshops
+Ardunio = Workshop.create!(title:"Ardunio from zero to hero", description:"you will learn shit actually!", date: Date.parse("Dec 30 2017"),
+                 time: Time.parse("12:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+
+OOP = Workshop.create!(title:"Learn OOP like a boss", description:"you will be a boss!", date: Date.parse("Feb 3 2018"),
+                 time: Time.parse("14:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+
+Workshop.create!(title:"3D printing FTW!", description:"3D print anything", date: Date.parse("May 30 2018"),
+                 time: Time.parse("12:15"), branch_id: FabLabBr.id, organization_id:Organization.all.to_a.sample.id)
+
+KillBoss = Workshop.create!(title:"How to kill your boss", description:"Get rid of that bit**", date: Date.parse("Jan 1 2018"),
+                 time: Time.parse("20:05"), branch_id: KhanaBr.id, organization_id:Organization.all.to_a.sample.id)
+
+
+Git = Workshop.create!(title:"Git started", description:"Learn github", date: Date.parse("Dec 29 2017"),
+                 time: Time.parse("15:00"), branch_id: ZoneBr.id, organization_id:Organization.all.to_a.sample.id)
+
+#Creating some reviews (branches)
 Review.create!(feedback: "The best co-working space I have ever been to",rating: 5, branch_id:  Branch.all.to_a.sample.id,user_id: User.all.to_a.sample.id)
 Review.create!(feedback: "Eh l 5ara dah oxem bellah",rating: 0.0, branch_id:  Branch.all.to_a.sample.id,
 	user_id:User.all.to_a.sample.id)
@@ -99,12 +116,29 @@ Review.create!(feedback: "7elw 7elw",rating: 3.5, branch_id:  Branch.all.to_a.sa
 Review.create!(feedback: "Not bad, not bad",rating: 2.5, branch_id: Branch.all.to_a.sample.id,
  user_id:User.all.to_a.sample.id)
 
+#Creating some reviews (organizations)
 Review.create!(feedback: "Activity 3el2",rating: 3.5, organization_id: Organization.all.to_a.sample.id, 
 	user_id:User.all.to_a.sample.id)
 Review.create!(feedback: "ana baroo7 3ashan l banat",rating: 4.5, organization_id: Organization.all.to_a.sample.id, 
 	user_id:User.all.to_a.sample.id)
 Review.create!(feedback: "The best extracurricular activity ever",rating: 5, organization_id: Organization.all.to_a.sample.id, 
 	user_id:User.all.to_a.sample.id)
+
+#Creating some reviews (workshops)
+Review.create!(feedback: "Instead of becoming a hero, I became a zero :(",rating: 0.0, workshop_id: Ardunio.id, 
+      user_id:User.all.to_a.sample.id)
+
+Review.create!(feedback: "Workshop we7sha, 3yzeen felosna",rating: 1.0, workshop_id: Ardunio.id, 
+      user_id:User.all.to_a.sample.id)
+
+Review.create!(feedback: "Git started was my gate into the open source world",rating: 5.0, workshop_id: Git.id, 
+      user_id:User.all.to_a.sample.id)
+
+Review.create!(feedback: "I have successfully killed my boss in a henious way",rating: 4.5, workshop_id: KillBoss.id, 
+      user_id:User.all.to_a.sample.id)
+
+Review.create!(feedback: "OOP sucks, Linus Travold sends his regards ha3ha3ha3",rating: 2.5, workshop_id: OOP.id, 
+      user_id:User.all.to_a.sample.id)
 
 #Creating some positions
 idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com",address: "Cairo").id
@@ -114,24 +148,8 @@ Position.create!(user_id: u_id, organization_id: idK, title:"owner", start_time:
 idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com",address: "Giza").id
 Position.create!(user_id: u_id, organization_id: idH, title:"owner",start_time:Date.parse("Dec 2 2017"))
 
-#Creating some workshops
-Workshop.create!(title:"Ardunio from zero to hero", description:"you will learn shit actually!", date: Date.parse("Dec 30 2017"),
-                 time: Time.parse("12:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
-
-Workshop.create!(title:"Learn OOP like a boss", description:"you will be a boss!", date: Date.parse("Feb 3 2018"),
-                 time: Time.parse("14:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
-
-Workshop.create!(title:"3D printing FTW!", description:"3D print anything", date: Date.parse("May 30 2018"),
-                 time: Time.parse("12:15"), branch_id: FabLabBr.id, organization_id:Organization.all.to_a.sample.id)
-
-Workshop.create!(title:"How to kill your boss", description:"Get rid of that bit**", date: Date.parse("Jan 1 2018"),
-                 time: Time.parse("20:05"), branch_id: KhanaBr.id, organization_id:Organization.all.to_a.sample.id)
-
 Workshop.create!(title:"How to become a vector", description:"To infinity and what's beyond", date: Date.parse("Dec 27 2018"),
                  time: Time.parse("15:00"), branch_id: MakanBr3.id, organization_id:idK)
-
-Workshop.create!(title:"Git started", description:"Learn github", date: Date.parse("Dec 29 2017"),
-                 time: Time.parse("15:00"), branch_id: ZoneBr.id, organization_id:idK)
 
 Workshop.create!(title:"Fundraise like a begger!", description:"Learn the art of begging", date: Date.parse("Jan 5 2018"),
                  time: Time.parse("13:00"), branch_id: MakanBr4.id, organization_id:idH)
