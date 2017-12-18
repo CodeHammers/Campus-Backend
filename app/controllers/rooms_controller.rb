@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
 
     if @room.save
-      head :ok
+      render json @room
     else
       render json: @room.errors, status: :unprocessable_entity
     end

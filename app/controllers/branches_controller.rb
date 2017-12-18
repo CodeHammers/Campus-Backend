@@ -25,7 +25,7 @@ class BranchesController < ApplicationController
     @position = Position.new(user_id:current_user.id, organizaion_id:branch.id, title:"owner")    
     
     if @branch.save
-      head :ok
+      render json: @branch
     else
       render json: @branch.errors, status: :unprocessable_entity
     end

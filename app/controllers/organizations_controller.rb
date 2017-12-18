@@ -15,7 +15,7 @@ class OrganizationsController < ApplicationController
 
   def index_secure
     @managed_orgnizations =  Position.get_positons_organization(current_user.id)
-    pp @managed_orgnizations
+    
     render json: @managed_orgnizations
   end
 
@@ -27,10 +27,12 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   def create
     @organization = Organization.new(organization_params)
-    @position = Position.new(user_id:current_user.id, organization_id:@organization.id, title:"owner")
     
-    if @organization.save && @position.save
-      head :ok
+    
+    if @organization.save 
+      Position.create(user_id:current_user.id, organization_id:@organization.id, title:"owner")
+
+      render json: @organization
     else
       render json: @organization.errors, status: :unprocessable_entity
     end

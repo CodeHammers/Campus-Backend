@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
 
     if @image.save
-      head :ok
+      render json: @image
     else
       render json: @image.errors, status: :unprocessable_entity
     end

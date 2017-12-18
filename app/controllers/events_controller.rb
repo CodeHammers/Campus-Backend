@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      head :ok
+      render json: @event
     else
       render json: @event.errors, status: :unprocessable_entity
     end
