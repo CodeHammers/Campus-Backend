@@ -23,7 +23,7 @@ class Organization < ApplicationRecord
 
     #A function to retrieve an organization using its id (full retrieval of data)
     def self.get_organization(org_id)
-        org = Organization.find(org_id)
+        org = Organization.execute_sql("select * from organizations as o where o.id = ?",org_id)
         return org
     end
 

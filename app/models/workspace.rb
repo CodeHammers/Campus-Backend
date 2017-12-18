@@ -11,7 +11,7 @@ class Workspace < ApplicationRecord
 
     #A function to retrieve a workspace using its id (full retrieval of data)
     def self.get_workspace(workspace_id)
-        workspace = Workspace.find(workspace_id)
+        workspace = Workspace.execute_sql("select * from workspaces as w where w.id = ?",workspace_id)
         return workspace
     end
 

@@ -11,7 +11,7 @@ class Image < ApplicationRecord
 
   	#A function get a specific image using its id
   	def self.get_image(image_id)
-  		image = Image.find(image_id)
+  		image = Image.execute_sql("select * from images as p where p.id = ?",image_id)
   		return image
   	end
 

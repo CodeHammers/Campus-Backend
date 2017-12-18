@@ -9,7 +9,13 @@ class Position < ApplicationRecord
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     
         connection.execute(send(:sanitize_sql_array, sql_array))
-    end    
+    end 
+
+    #A function to get a certain position by its id
+    def self.get_position(position_id)
+        position = Position.execute_sql("select * from positions as p where p.id = ?",position_id)
+        return position
+    end   
 
     #A function to get the workspaces names that user has position in it
     def self.get_positons_workspace(user_id)

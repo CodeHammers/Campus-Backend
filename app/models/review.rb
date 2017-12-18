@@ -10,7 +10,7 @@ class Review < ApplicationRecord
 
     #A function to retrive a certain review (full retrieval of data)
     def self.get_review(review_id)
-        review = Review.find(review_id)
+        review = Review.execute_sql("select * from reviews as r where r.id = ?",review_id)
         return review
     end
 
