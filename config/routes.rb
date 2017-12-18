@@ -11,16 +11,27 @@ Rails.application.routes.draw do
       resources :workshops do 
         #api/organizations/workshops/reviews
         resources :reviews
+        #api/organizations/workshops/id/images
+        resources :images 
       end
-      resources :events 
+      #api/organizations/events
+      resources :events do 
+        #api/organizations/events/id/images
+        resources :images 
+      end  
+      #api/organizations/images
+      resources :images 
     end 
 
     #api/workspaces/ 
     resources :workspaces do
       #api/workspaces/branches
       resources :branches do
-        #api/workspaces/branches/rooms
-        resources :rooms
+        #api/workspaces/branches/id/rooms
+        resources :rooms do 
+          #api/workspaces/branches/id/rooms/id/images
+          resources :images
+        end
         #api/workspaces/branches/reviews
         resources :reviews
         #api/workspaces/branches/workshops
@@ -28,11 +39,10 @@ Rails.application.routes.draw do
             #api/workspaces/branches/workshops/reviews
             resources :reviews
         end
+        #api/workspaces/events
         resources :events
       end
     end 
-
-    resources :images 
 
     #api/users
     resources :users do

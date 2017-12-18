@@ -86,9 +86,20 @@ Image.create!(image_url: "https://i.imgur.com/lFz6I9i.jpg", room_id:  Room.all.t
 Image.create!(image_url: "https://i.imgur.com/Hecb6kU.jpg", room_id:  Room.all.to_a.sample.id)
 Image.create!(image_url: "https://i.imgur.com/2knOYqa.jpg", room_id:  Room.all.to_a.sample.id)
 Image.create!(image_url: "https://i.imgur.com/uJQlrIv.jpg", room_id:  Room.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/OgPhGn2.jpg", room_id:  Room.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/p2Qhtds.jpg", room_id:  Room.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/LQnSFsx.jpg", room_id:  Room.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/LTjkixq.jpg", room_id:  Room.all.to_a.sample.id)
+
 Image.create!(image_url: "https://i.imgur.com/6j1JTOg.jpg", organization_id:  Organization.all.to_a.sample.id)
 Image.create!(image_url: "https://i.imgur.com/hLbd906.jpg", organization_id:  Organization.all.to_a.sample.id)
 Image.create!(image_url: "https://i.imgur.com/8D4IqYa.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/JfCzSn9.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/5OSLIFt.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/9G7Eioq.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/twGeg9G.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/qWaPdLU.jpg", organization_id:  Organization.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/sFUb7cl.jpg", organization_id:  Organization.all.to_a.sample.id)
 
 #Creating some workshops
 Ardunio = Workshop.create!(title:"Ardunio from zero to hero", description:"you will learn shit actually!", date: Date.parse("Dec 30 2017"),
@@ -166,3 +177,20 @@ Event.create!(title: "Schrodinger's cat unboxing", description: "I hope it's not
 Event.create!(title: "Job Fair", description: "Job Fair", time:Time.parse("12:00"), date:Date.parse("Dec 21 2017"),
       venue_name: "FabLab workspace", location:"Giza", schedule:"jobs ya negm", organization_id:Organization.all.to_a.sample.id, 
       branch_id:FabLabBr.id)
+
+#Creating some images for events 
+Image.create!(image_url: "https://i.imgur.com/mpHgYA0.jpg", event_id:  Event.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/lLfc09A.jpg", event_id:  Event.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/fqopF9w.jpg", event_id:  Event.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/Y4IGM7T.jpg", event_id:  Event.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/qrIr5rH.jpg", event_id:  Event.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/4ISjW1u.jpg", event_id:  Event.all.to_a.sample.id)
+
+#creating some images for workshops
+Image.create!(image_url: "https://i.imgur.com/YVhHdlV.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/lKTZtRu.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/MWso7vk.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/xhDbQrb.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/VVKXpiT.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/tD17x2A.jpg", workshop_id:  Workshop.all.to_a.sample.id)
+Image.create!(image_url: "https://i.imgur.com/yCgXYJa.jpg", workshop_id:  Workshop.all.to_a.sample.id)

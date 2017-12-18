@@ -5,12 +5,12 @@ class ImagesController < ApplicationController
   def index
     if params[:room_id].present?
       @images = Image.get_all_room_images(params[:room_id])
-    elsif params[:organization_id].present?
-      @images = Image.get_all_organization_images(params[:organization_id]) 
-    elsif params[:event_id].present?
+    elsif params[:organization_id].present? and params[:workshop_id].present? 
+      @images = Image.get_all_workshop_images(params[:workshop_id])
+    elsif params[:organization_id].present? and params[:event_id].present?
       @images = Image.get_all_event_images(params[:event_id])
     else
-      @images = Image.get_all_workshop_images(params[:workshop_id])
+      @images = Image.get_all_organization_images(params[:organization_id])
     end
 
     render json: @images
