@@ -58,7 +58,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.string  :title,       :null => false 
       t.text    :description, :null => true  
       t.date    :date,        :null => false 
-      t.time    :time,        :null => false 
       t.timestamps
 
       #relations
