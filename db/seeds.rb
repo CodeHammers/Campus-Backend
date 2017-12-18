@@ -8,14 +8,14 @@
 
 #starting a new session
 #db Clean 
-Position.delete_all
-Review.delete_all
-Image.delete_all
-Room.delete_all
-Branch.delete_all
-Workspace.delete_all
-User.delete_all
-Organization.delete_all
+#Position.delete_all
+#Review.delete_all
+#Image.delete_all
+#Room.delete_all
+#Branch.delete_all
+#Workspace.delete_all
+#User.delete_all
+#Organization.delete_all
 
 #Creating some workspaces 
 Makan  = Workspace.create!(name: 'Makan', about:"We are Makan and we are the best")
@@ -74,14 +74,14 @@ u_id = User.create!(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma
 #Event.create!(title: "From zero to hero", description: "Become an expert", time: "")
 
 #creating some organization
-Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com")
-Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com")
-Organization.create!(name:"ieef",phone:"0123456",university:"cairo",email:"sad3@sad.com")
-Organization.create!(name:"ieeeg",phone:"0123456",university:"cairo",email:"sad4@sad.com")
-Organization.create!(name:"flex",phone:"01235256",university:"cairo",email:"sad5@sad.com")
-Organization.create!(name:"flax",phone:"01235256",university:"cairo",email:"sad6@sad.com")
-Organization.create!(name:"flen",phone:"01235256",university:"cairo",email:"sad7@sad.com")
-Organization.create!(name:"flexg",phone:"01235256",university:"cairo",email:"sad8@sad.com")
+Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com",address: "Cairo")
+Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com",address: "Giza")
+Organization.create!(name:"ieef",phone:"0123456",university:"cairo",email:"sad3@sad.com",address: "Assuit")
+Organization.create!(name:"ieeeg",phone:"0123456",university:"cairo",email:"sad4@sad.com",address: "Cairo")
+Organization.create!(name:"flex",phone:"01235256",university:"cairo",email:"sad5@sad.com",address: "Luxor")
+Organization.create!(name:"flax",phone:"01235256",university:"cairo",email:"sad6@sad.com",address: "Aswan")
+Organization.create!(name:"flen",phone:"01235256",university:"cairo",email:"sad7@sad.com",address: "Alex")
+Organization.create!(name:"flexg",phone:"01235256",university:"cairo",email:"sad8@sad.com",address: "Sinai")
 
 #Creating some images 
 #it's not guaranteed that room ids are 1 2 3 4 , deletions make shifts in ids 
@@ -109,10 +109,32 @@ Review.create!(feedback: "ana baroo7 3ashan l banat",rating: 4.5, organization_i
 Review.create!(feedback: "The best extracurricular activity ever",rating: 5, organization_id: Organization.all.to_a.sample.id, 
 	user_id:User.all.to_a.sample.id)
 
-id = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
-Position.create!(user_id: u_id, organization_id: id, title:"owner" )
+#Creating some positions
+idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com",address: "Cairo").id
+Position.create!(user_id: u_id, organization_id: idK, title:"owner", start_time:Date.parse("Nov 2 2015"))
 
 
-id = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
-Position.create!(user_id: u_id, organization_id: id, title:"owner" )
+idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com",address: "Giza").id
+Position.create!(user_id: u_id, organization_id: idH, title:"owner",start_time:Date.parse("Dec 2 2017"))
 
+#Creating some workshops
+Workshop.create!(title:"Ardunio from zero to hero", description:"you will learn shit actually!", date: Date.parse("Dec 30 2017"),
+                 time: Time.parse("12:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+
+Workshop.create!(title:"Learn OOP like a boss", description:"you will be a boss!", date: Date.parse("Feb 3 2018"),
+                 time: Time.parse("14:15"), branch_id: MakanBr1.id, organization_id:Organization.all.to_a.sample.id)
+
+Workshop.create!(title:"3D printing FTW!", description:"3D print anything", date: Date.parse("May 30 2018"),
+                 time: Time.parse("12:15"), branch_id: FabLabBr.id, organization_id:Organization.all.to_a.sample.id)
+
+Workshop.create!(title:"How to kill your boss", description:"Get rid of that bit**", date: Date.parse("Jan 1 2018"),
+                 time: Time.parse("20:05"), branch_id: KhanaBr.id, organization_id:Organization.all.to_a.sample.id)
+
+Workshop.create!(title:"How to become a vector", description:"To infinity and what's beyond", date: Date.parse("Dec 27 2018"),
+                 time: Time.parse("15:00"), branch_id: MakanBr3.id, organization_id:idK)
+
+Workshop.create!(title:"Git started", description:"Learn github", date: Date.parse("Dec 29 2017"),
+                 time: Time.parse("15:00"), branch_id: ZoneBr.id, organization_id:idK)
+
+Workshop.create!(title:"Fundraise like a begger!", description:"Learn the art of begging", date: Date.parse("Jan 5 2018"),
+                 time: Time.parse("13:00"), branch_id: MakanBr4.id, organization_id:idH)
