@@ -49,7 +49,7 @@ class ImagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
-      @image = Image.get_image(params[:id])
+      @image = Image.get_image(params[:id]).first
     end
 
     # Only allow a trusted parameter "white list" through.

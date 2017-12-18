@@ -41,7 +41,7 @@ class ReservationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
-      @reservation = Reservation.get_reservation(params[:id])
+      @reservation = Reservation.get_reservation(params[:id]).first
     end
 
     # Only allow a trusted parameter "white list" through.
