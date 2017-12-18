@@ -28,7 +28,7 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new(workspace_params)
     
     if @workspace.save 
-      Position.create(user_id:current_user.id, organizaion_id: @workspace.id, title:"owner")
+      Position.create(user_id:current_user.id, organization_id: @workspace.id, title:"owner")
       
       render json: @workspace
     else
