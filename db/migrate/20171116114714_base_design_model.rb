@@ -58,6 +58,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.string  :title,       :null => false 
       t.text    :description, :null => true  
       t.date    :date,        :null => false 
+      t.time    :time,        :null => true 
       t.timestamps
 
       #relations
@@ -73,9 +74,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.text    :description, :null => false  
       t.time    :time,        :null => true 
       t.date    :date,        :null => false 
-      t.string  :venue_name,  :null => false 
       t.string  :location,    :null => false 
-      t.text    :schedule,    :null => false 
       t.timestamps
 
       #relations
