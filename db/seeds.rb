@@ -152,11 +152,11 @@ Review.create!(feedback: "OOP sucks, Linus Travold sends his regards ha3ha3ha3",
       user_id:User.all.to_a.sample.id)
 
 #Creating some positions
-idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com",address: "Cairo").id
+idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
 Position.create!(user_id: u_id, organization_id: idK, title:"owner", start_time:Date.parse("Nov 2 2015"))
 
 
-idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com",address: "Giza").id
+idH = Organization.create!(name: "HIH",phone:"32323233323",university:"Assuit",email:"bassel@gmail.com").id
 Position.create!(user_id: u_id, organization_id: idH, title:"owner",start_time:Date.parse("Dec 2 2017"))
 
 Workshop.create!(title:"How to become a vector", description:"To infinity and what's beyond", date: Date.parse("Dec 27 2018"),
