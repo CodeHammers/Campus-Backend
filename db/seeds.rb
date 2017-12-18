@@ -8,8 +8,8 @@
 
 #starting a new session
 #db Clean 
-Event.delete_all
 Image.delete_all
+Event.delete_all
 Review.delete_all
 Workshop.delete_all
 Image.delete_all
