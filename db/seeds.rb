@@ -170,15 +170,15 @@ Workshop.create!(title:"Fundraise like a begger!", description:"Learn the art of
 
 #creating some events
 Event.create!(title: "2018 opening", description: "kvector opening", date:Date.parse("Jan 1 2018"),
-       location:"Giza", schedule:"rabak yeshlha ba2a ha2olak ba3den", organization_id:idK, 
+       location:"Giza",  organization_id:idK, 
       branch_id:MakanBr1.id)
 
 Event.create!(title: "Schrodinger's cat unboxing", description: "I hope it's not dead",  date:Date.parse("Jan 1 2018"),
-      location:"Cairo", schedule:"We will open the box, service the cat and leave", organization_id:idH, 
+      location:"Cairo", organization_id:idH, 
       branch_id:ZoneBr.id)
 
 Event.create!(title: "Job Fair", description: "Job Fair",  date:Date.parse("Dec 21 2017"),
-      location:"Giza", schedule:"jobs ya negm", organization_id:Organization.all.to_a.sample.id, 
+      location:"Giza",  organization_id:Organization.all.to_a.sample.id, 
       branch_id:FabLabBr.id)
 
 #Creating some images for events 
