@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.get_user_in_org(params[:org_id])
 
     render json: @users
   end
