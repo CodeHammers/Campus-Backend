@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(password: user_params[:pd])
+    if @user.update(password: params[:pd])
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
