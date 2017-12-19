@@ -25,4 +25,14 @@ class User < ActiveRecord::Base
   has_many :organizations, through: :positions
 
   
+   def self.execute_sql(*sql_array)     
+        connection.execute(send(:sanitize_sql_array, sql_array))
+    end 
+
+    #A function to get a certain position by its id
+    def self.get_user_in_org(organization_id)
+        position = Position.execute_sql("select u.email ,u.name,u.id from users as u ,positions as p where p.organization_id=? and p.user_id = u.id",organization_id)
+        return position
+    end   
+
 end
