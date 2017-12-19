@@ -22,6 +22,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   def create
     @workshop = Workshop.new(workshop_params) 
+    @workshop.organization_id = params[:organization_id]
     if @workshop.save
       render json: @workshop
     else
