@@ -16,6 +16,9 @@ class BranchesController < ApplicationController
   
   # GET /branches/1
   def show
+    @branch.logo = Workspace.find(@branch.workspace_id).logo
+    @branch.title = Workspace.find(@branch.workspace_id).name
+
     render json: @branch
   end
 
