@@ -18,6 +18,9 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
 
+    @room.branch_id = params[:branch_id]
+    
+
     if @room.save
       render json @room
     else
