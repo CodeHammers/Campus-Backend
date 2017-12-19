@@ -73,6 +73,8 @@ User.create!(name: "Mina Magdy", email: "Magdy@gmail.com", password: "ma3lesh323
 User.create!(name: "Omar Hashim", email: "OmarHashim@gmail.com", password: "mathgames?")
 u_id = User.create!(name: "Sayed", email: "Sayed@gmail.com", password: "5odonyma3ako").id
 
+User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8))
+
 #creating some organization
 Organization.create!(name:"ieee",phone:"0123456",university:"cairo",email:"sad1@sad.com")
 Organization.create!(name:"ideta",phone:"0123456",university:"cairo",email:"sad2@sad.com")
