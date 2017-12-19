@@ -25,7 +25,7 @@ class BranchesController < ApplicationController
     @branch.workspace_id = params[:workspace_id]
     
     if @branch.save
-      @position = Position.new(user_id:current_user.id, organizaion_id:@branch.id, title:"owner")    
+      @position = Position.new(user_id:current_user.id, workspace_id:@branch.id, title:"owner")    
       render json: @branch
     else
       render json: @branch.errors, status: :unprocessable_entity
