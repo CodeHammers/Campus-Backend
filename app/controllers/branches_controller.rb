@@ -22,6 +22,7 @@ class BranchesController < ApplicationController
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
+    @branch.workspace_id = params[:workspace_id]
     
     if @branch.save
       @position = Position.new(user_id:current_user.id, organizaion_id:@branch.id, title:"owner")    
