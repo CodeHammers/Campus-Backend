@@ -21,7 +21,7 @@ class WorkshopsController < ApplicationController
 
   # POST /workshops
   def create
-    @workshop = Workshop.new(params) 
+    @workshop = Workshop.new(workshop_params) 
     if @workshop.save
       render json: @workshop
     else
@@ -51,6 +51,6 @@ class WorkshopsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def workshop_params
-      params.require(:workshop).permit(:title, :description, :date, :time)
+      params.require(:workshop).permit(:title, :description, :date, :time,:branch_id,:organization_id)
     end
 end
