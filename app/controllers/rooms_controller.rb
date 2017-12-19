@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
 
 
     if @room.save
-      render json @room
+      render json: @room
     else
       pp @room.errors
       render json: @room.errors, status: :unprocessable_entity
