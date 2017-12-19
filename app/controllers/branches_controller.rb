@@ -22,9 +22,9 @@ class BranchesController < ApplicationController
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
-    @position = Position.new(user_id:current_user.id, organizaion_id:branch.id, title:"owner")    
     
     if @branch.save
+      @position = Position.new(user_id:current_user.id, organizaion_id:@branch.id, title:"owner")    
       render json: @branch
     else
       render json: @branch.errors, status: :unprocessable_entity

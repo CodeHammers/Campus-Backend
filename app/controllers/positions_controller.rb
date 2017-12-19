@@ -15,7 +15,8 @@ class PositionsController < ApplicationController
   end
 
   def grant_acess_to_org
-     @pos = Position.new(organization_id:params[:organization_id],user_id: User.where(email:params[:email]).first.id ,title:"manager")
+    pp User.where(email:params[:email]).first
+    @pos = Position.new(organization_id:params[:organization_id],user_id: User.where(email:params[:email]).first.id ,title:"manager")
     if @pos.save
       render json: @pos
     else
