@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
     get 'admin/organizations' , to: 'organizations#index_admin'
 
+    get 'user/feed' , to: 'users#feed'
 
     get 'user/subcribe' , to: 'users#favo'
 

@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     @ss = Subscribe.get_favos(current_user.id)
     render json: @ss
   end
+
+  def feed
+    @feed = Workshop.get_fav_feed(current_user.id)
+    render json: @feed
+  end
   
 
   # GET /users/1
