@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     get 'admin/organizations' , to: 'organizations#index_admin'
 
     delete 'admin/workspaces/:id' , to: 'workspaces#destroy_admin'
-    delete 'admin/organizations/:id' , to: 'workspaces#destroy_admin'
+    delete 'admin/organizations/:id' , to: 'organizations#destroy_admin'
 
   end
 end
