@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-
+  before_action :authenticate_user , only: [:favo]
   # GET /users
   def index
     if params[:fuck_off]=="yes"
@@ -13,7 +13,10 @@ class UsersController < ApplicationController
   end
 
 
-
+  def favo
+    @ss = Subscribe.get_favos(current_user.id)
+    render json: @ss
+  end
   
 
   # GET /users/1
