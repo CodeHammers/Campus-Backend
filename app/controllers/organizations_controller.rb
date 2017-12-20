@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :update, :destroy,:destroy_admin]
-  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
+  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure,:subscribe]
     
   # GET /organizations
   def index
@@ -22,6 +22,17 @@ class OrganizationsController < ApplicationController
   def index_admin
     @admin_organizations  = Organization.all;
     render json: @admin_organizations
+  end
+
+  def subcribe
+    
+    @subcribe = Subscribe.new(user_id: current_user.id,organization_id: params[:id])
+    if @subscribe.save
+      render json: @subscribe
+    else
+      render json: @subscribe.errors , status: :unprocessable_entity
+    end
+
   end
 
   # GET /organizations/1
