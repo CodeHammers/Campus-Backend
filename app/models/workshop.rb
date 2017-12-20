@@ -36,4 +36,15 @@ class Workshop < ApplicationRecord
         return workshops
     end
 
+    #A function to get number of workshops offered by an organization
+    def self.get_number_workshop(organization_id)
+        workshop = Workshop.execute_sql("select count(w.id) from workshops as w where w.organization_id = ?", organization_id) 
+        return workshop
+    end
+
+    #A function to get number of workshops in a branch
+    def self.get_number_workshop_branch(branch_id)
+        workshop = Workshop.execute_sql("select count(w.id) from workshops as w where w.branch_id = ?", branch_id) 
+        return workshop
+    end
 end

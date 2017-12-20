@@ -30,4 +30,9 @@ class Subscribe < ApplicationRecord
   		return !subscription.nil?
   	end
 
+	#A function to get number of subs to an organization
+	def self.get_number_subscription(organization_id)
+		subscribe = Subscribe.execute_sql("select count(s.id) from subscribes as s where s.organization_id = ?", organization_id)
+		return Subscribe 
+	end
 end

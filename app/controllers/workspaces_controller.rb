@@ -13,6 +13,16 @@ class WorkspacesController < ApplicationController
     render json: @workspaces
   end
 
+  def branches
+    @branches = Branch.get_number_branch(params[:workspace_id])
+    render json: @branches
+  end
+
+  def rooms
+    @rooms = Branch.get_number_room(params[:workspace_id])
+    render json: @rooms
+  end
+
   def index_secure
     @managed_workspaces =  Position.get_positons_workspace(current_user.id)
     render json: @managed_workspaces

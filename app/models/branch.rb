@@ -37,4 +37,15 @@ class Branch < ApplicationRecord
     	return branches 
     end
 
+    #A function to get number of branches of a workspace
+    def self.get_number_branch(workspace_id)
+        branches = Branch.execute_sql("select count(b.id) from branches as b where b.workspace_id = ?",workspace_id)
+        return branches 
+    end
+
+    #A function to get the total number of rooms of a workspace
+    def self.get_number_room(workspace_id)
+        branches = Branch.execute_sql("select sum(b.number_of_rooms) from branches as b where b.workspace_id = ?",workspace_id)
+        return branches 
+    end
 end

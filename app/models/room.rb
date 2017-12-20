@@ -20,5 +20,11 @@ class Room < ApplicationRecord
   	def self.get_all_rooms(branch_id)
   		rooms = Room.execute_sql("select r.id, r.price, r.availability, r.capacity from rooms as r where r.branch_id = ?",branch_id)
   		return rooms 
-  	end
+	end
+	
+	#A function to get average price of rooms of a branch
+	def self.get_average_price(branch_id)
+		prices = Room.execute_sql("select avg(r.price) from rooms as r where r.branch_id = ?",branch_id)
+		return prices 
+	end
 end

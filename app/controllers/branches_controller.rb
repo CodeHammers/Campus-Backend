@@ -15,6 +15,16 @@ class BranchesController < ApplicationController
     render json: @rating
   end
   
+  def prices
+    @prices = Room.get_average_price(params[:branch_id])
+    render json: @prices
+  end
+
+  def workshops
+    @workshops = Workshop.get_number_workshop_branch(params[:branch_id])
+    render json: @workshops
+  end
+
   def index_secure
     @managed_branches =  Position.get_positons_branch(current_user.user_id)
 

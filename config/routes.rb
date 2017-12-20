@@ -58,6 +58,11 @@ Rails.application.routes.draw do
     post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
     get 'organizations/:organization_id/rating', to: 'organizations#rating'
     get 'workspaces/:workspace_id/branches/:branch_id/rating', to: 'branches#rating'
-    
+    get 'organizations/:organization_id/subscription', to: 'organizations#subscription'
+    get 'organizations/:organization_id/workshops', to: 'organizations#workshops'
+    get 'workspaces/:workspace_id/branches',to: 'workspaces#branches'
+    get 'workspaces/:workspace_id/rooms',to: 'workspaces#rooms'
+    get 'worksapces/:workspace_id/branches/:branch_id/prices', to: 'branches#prices'
+    get 'worksapces/:workspace_id/branches/:branch_id/workshops', to: 'branches#workshops'
   end
 end

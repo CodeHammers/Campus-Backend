@@ -25,6 +25,16 @@ class OrganizationsController < ApplicationController
     render json: @managed_orgnizations
   end
 
+  def subscription
+    @subscription = Subscribe.get_number_subscription(params[:organization_id])
+    render json: @subscription
+  end
+
+  def workshops
+    @workshops = Workshop.get_number_workshop(params[:organization_id])
+    render json: @workshops
+  end
+
   # GET /organizations/1
   def show
     render json: @organization
