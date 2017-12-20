@@ -8,6 +8,10 @@ class Workshop < ApplicationRecord
         connection.execute(send(:sanitize_sql_array, sql_array))
     end
 
+    def self.get_fav_feed(user_id)
+        feed = Workshop.execute_sql("select  o.name,w.title  from organizations as o , workshops as w, subscribes as s where s.user_id =? and s.organization_id = o.id and w.organization_id=o.id  ",user_id)
+    end
+
     #A function to get a specific workshop indetified by its id
     def self.get_workshop(workshop_id)
         workshop = Workshop.execute_sql("select * from workshops as w where w.id = ?",workshop_id).to_a 
