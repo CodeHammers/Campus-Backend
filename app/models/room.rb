@@ -21,7 +21,4 @@ class Room < ApplicationRecord
   		rooms = Room.execute_sql("select r.id, r.price, r.availability, r.capacity from rooms as r where r.branch_id = ?",branch_id)
   		return rooms 
   	end
-
-    #A function to retrieve all images of a certain room identified by the room_id
-    
 end

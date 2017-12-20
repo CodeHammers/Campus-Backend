@@ -9,8 +9,15 @@ class BranchesController < ApplicationController
     render json: @branches
   end
 
+  def rating
+    @rating = Review.get_branch_rating(params[:branch_id])
+
+    render json: @rating
+  end
+  
   def index_secure
     @managed_branches =  Position.get_positons_branch(current_user.user_id)
+
     render json: @managed_branches
   end
   

@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.boolean "payment_status", null: false
     t.integer "number_of_attendees"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at", null: false 
     t.bigint "branch_id"
     t.bigint "user_id"
     t.bigint "organization_id"

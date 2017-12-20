@@ -13,6 +13,12 @@ class OrganizationsController < ApplicationController
     render json: @organizations
   end
 
+  def rating
+    @rating = Review.get_org_rating(params[:organization_id])
+
+    render json: @rating
+  end
+
   def index_secure
     @managed_orgnizations =  Position.get_positons_organization(current_user.id)
     

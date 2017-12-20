@@ -11,7 +11,7 @@ class Workshop < ApplicationRecord
 
     #A function to get a specific workshop indetified by its id
     def self.get_workshop(workshop_id)
-        workshop = Workshop.execute_sql("select * from workshops as w where w.id = ?",workshop_id).to_a 
+        workshop = Workshop.execute_sql("select * from workshops as w where w.id = ?", workshop_id).to_a 
         return workshop
     end
 
