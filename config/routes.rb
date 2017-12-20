@@ -56,6 +56,8 @@ Rails.application.routes.draw do
     get 'auth/branches', to: 'branches#index_secure'
     post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
     get 'admin/workspaces' , to: 'workspaces#index_admin'
+    delete 'admin/workspaces/:id' , to: 'workspaces#destroy_admin'
+
 
   end
 end
