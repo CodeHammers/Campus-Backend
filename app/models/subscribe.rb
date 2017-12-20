@@ -7,7 +7,7 @@ class Subscribe < ApplicationRecord
     end 
 
     def self.get_favos(user_id)
-    	ss = Subscribe.execute_sql("select o.name ,o.university from organizations as o, subscribes as s where s.organization_id = o.id and s.user_id = ?",user_id)
+    	ss = Subscribe.execute_sql("select o.name ,o.university ,o.id,o.logo from organizations as o, subscribes as s where s.organization_id = o.id and s.user_id = ?",user_id)
     	return ss
     end   
 end
