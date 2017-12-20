@@ -64,10 +64,13 @@ Rails.application.routes.draw do
 
     get 'user/subcribe' , to: 'users#favo'
 
+    post 'user/adminize', to: 'users#adminze'
+
     post 'organizations/:id/subscribe' ,to: 'organizations#subscribe'
 
     delete 'admin/workspaces/:id' , to: 'workspaces#destroy_admin'
     delete 'admin/organizations/:id' , to: 'organizations#destroy_admin'
+
 
   end
 end

@@ -29,6 +29,16 @@ class UsersController < ApplicationController
     render json: @user 
   end
 
+  def adminze
+    if params[:email].nil? || User.where(email: params[:email]).first.nil?
+      head :422
+    else
+      render json: User.where(email: params[:email]).first.update(nickname: "Berserker")
+
+    end
+
+  end
+
   # POST /users
   def create
 
