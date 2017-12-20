@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def adminze
     if params[:email].nil? || User.where(email: params[:email]).first.nil?
-      head :422
+      head 422
     else
       render json: User.where(email: params[:email]).first.update(nickname: "Berserker")
 
