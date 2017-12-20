@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
 
      user = User.create(email: params[:email],password:params[:pd],name:params[:name],image:params[:image],nickname: params[:nickname])
-     if user
+     if user.errors.messages.empty?
       render json: user
     else
       render json: @user.errors, status: :unprocessable_entity
