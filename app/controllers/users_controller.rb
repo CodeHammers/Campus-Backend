@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   # POST /users
   def create
 
-    
-     if  User.create(email: params[:email],password:params[:pd],name:params[:name],image:params[:image],nickname: params[:nickname])
-      head :ok
+      @user = User.new(email: params[:email],password:params[:pd],name:params[:name],image:params[:image],nickname: params[:nickname])
+     if  @user.save
+      render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
