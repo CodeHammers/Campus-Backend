@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :update, :destroy]
+  before_action :set_organization, only: [:show, :update, :destroy,:destroy_admin]
   before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
     
   # GET /organizations
@@ -45,6 +45,10 @@ class OrganizationsController < ApplicationController
     else
       render json: @organization.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy_admin
+    @organization.destroy
   end
 
   # DELETE /organizations/1

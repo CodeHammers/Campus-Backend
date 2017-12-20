@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
     get 'admin/workspaces' , to: 'workspaces#index_admin'
     delete 'admin/workspaces/:id' , to: 'workspaces#destroy_admin'
-
+    delete 'admin/organizations/:id' , to: 'workspaces#destroy_admin'
 
   end
 end
