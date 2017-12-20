@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     get 'auth/organizations', to: 'organizations#index_secure'
     get 'auth/branches', to: 'branches#index_secure'
     post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
+    get 'admin/workspaces' , to: 'workspaces#index_admin'
 
   end
 end

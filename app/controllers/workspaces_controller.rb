@@ -13,6 +13,11 @@ class WorkspacesController < ApplicationController
     render json: @workspaces
   end
 
+  def index_admin
+    @admin_workspaces  = Workspace.all;
+    render json: @admin_workspaces
+  end
+
   def index_secure
     @managed_workspaces =  Position.get_positons_workspace(current_user.id)
     render json: @managed_workspaces
