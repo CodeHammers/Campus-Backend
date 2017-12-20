@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     get 'admin/organizations' , to: 'organizations#index_admin'
 
 
-    get 'users/subcribe' , to: 'users#favo'
+    get 'user/subcribe' , to: 'users#favo'
 
     post 'organizations/:id/subscribe' ,to: 'organizations#subscribe'
 
