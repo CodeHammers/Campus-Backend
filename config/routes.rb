@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       #api/users/positions
       resources :positions
       resources :reservations
+      resources :subscriptions
     end
 
     get 'auth/workspaces', to: 'workspaces#index_secure'
@@ -57,5 +58,6 @@ Rails.application.routes.draw do
     post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
     get 'organizations/:organization_id/rating', to: 'organizations#rating'
     get 'workspaces/:workspace_id/branches/:branch_id/rating', to: 'branches#rating'
+    
   end
 end
