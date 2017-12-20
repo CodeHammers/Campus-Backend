@@ -24,8 +24,8 @@ class OrganizationsController < ApplicationController
     render json: @admin_organizations
   end
 
-  def subcribe
-    
+  def subscribe
+
     @subcribe = Subscribe.new(user_id: current_user.id,organization_id: params[:id])
     if @subscribe.save
       render json: @subscribe
