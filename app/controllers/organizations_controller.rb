@@ -18,6 +18,10 @@ class OrganizationsController < ApplicationController
     
     render json: @managed_orgnizations
   end
+    def index_admin
+    @admin_organizations  = Organization.all;
+    render json: @admin_organizations
+  end
 
   # GET /organizations/1
   def show

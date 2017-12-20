@@ -3,10 +3,16 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.get_user_in_org(params[:org_id])
+    if params[:fuck_off]="yes"
+      @users = User.all
+
+    else
+      @users = User.get_user_in_org(params[:org_id])
 
     render json: @users
   end
+
+
 
   # GET /users/1
   def show
