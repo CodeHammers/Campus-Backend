@@ -17,21 +17,21 @@ class Workshop < ApplicationRecord
 
     #A function to get all workshops organized by a certain organization 
     def self.workshops_made_by_organziation (org_id)
-        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date, w.time from workshops as w 
+        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date from workshops as w 
             where w.organization_id = ?",org_id).to_a
         return workshops
     end
 
     #A function to get all workshops held at a certain workspace branch
     def self.workshops_host_at_Branch (br_id)
-        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date, w.time from workshops as w 
+        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date from workshops as w 
             where w.branch_id = ?",br_id).to_a
         return workshops 
     end
 
     #A function to get all workshops held at a sepecific branch and organized by a certain organization
     def self.workshops_by_branch_and_organization(br_id, org_id)
-        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date, w.time from workshops as w 
+        workshops = Workshop.execute_sql("select w.id, w.title, w.description, w.date from workshops as w 
             where w.organization_id = ? and w.branch_id = ?", org_id, br_id).to_a
         return workshops
     end
