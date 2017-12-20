@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :update, :destroy]
-  before_action :authenticate_user , only: [:create]
+  before_action :authenticate_user! , only: [:create]
 
   # GET /reviews
   def index
