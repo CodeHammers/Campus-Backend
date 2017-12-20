@@ -1,14 +1,14 @@
 class Organization < ApplicationRecord
 
-    has_many :workshops 
-    has_many :reservations 
-    has_many :events
-    has_many :image
+    has_many :workshops , dependent: :destroy
+    has_many :reservations , dependent: :destroy
+    has_many :events, dependent: :destroy
+    has_many :images, dependent: :destroy
 
-    has_many :subscribes
+    has_many :subscribes, dependent: :destroy
     has_many :users, through: :subscribes
 
-    has_many :positions
+    has_many :positions , dependent: :destroy
     has_many :users, through: :positions
 
     validates :name , presence: true

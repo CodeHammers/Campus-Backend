@@ -42,9 +42,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.text "description", null: false
     t.time "time"
     t.date "date", null: false
-    t.string "venue_name", null: false
     t.string "location", null: false
-    t.text "schedule", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "organization_id"
@@ -125,12 +123,10 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "branch_id"
-    t.bigint "workshop_id"
     t.bigint "organization_id"
     t.index ["branch_id"], name: "index_reviews_on_branch_id"
     t.index ["organization_id"], name: "index_reviews_on_organization_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-    t.index ["workshop_id"], name: "index_reviews_on_workshop_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -192,6 +188,7 @@ ActiveRecord::Schema.define(version: 20171116120853) do
     t.string "title", null: false
     t.text "description"
     t.date "date", null: false
+    t.time "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "branch_id"
@@ -230,7 +227,6 @@ ActiveRecord::Schema.define(version: 20171116120853) do
   add_foreign_key "reviews", "branches"
   add_foreign_key "reviews", "organizations"
   add_foreign_key "reviews", "users"
-  add_foreign_key "reviews", "workshops"
   add_foreign_key "rooms", "branches"
   add_foreign_key "subscribes", "organizations"
   add_foreign_key "subscribes", "users"

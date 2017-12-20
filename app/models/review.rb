@@ -1,7 +1,6 @@
 class Review < ApplicationRecord
     belongs_to :user
     belongs_to :branch, optional: true
-    belongs_to :workshop, optional: true
 
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     

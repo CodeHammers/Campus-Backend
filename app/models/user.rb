@@ -10,18 +10,18 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   
 
-  has_many :reviews 
-  has_many :reservations
+  has_many :reviews , dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
 
-  has_many :attends
+  has_many :attends, dependent: :destroy
   has_many :events, through: :attends
 
-  has_many :subscribes
+  has_many :subscribes, dependent: :destroy
   has_many :organizations, through: :subscribes
 
 
-  has_many :positions
+  has_many :positions, dependent: :destroy
   has_many :organizations, through: :positions
 
   

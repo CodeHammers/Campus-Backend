@@ -93,7 +93,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       #relations
       t.belongs_to :user , foreign_key: true
       t.belongs_to :branch , foreign_key: true
-      t.belongs_to :workshop , foreign_key: true
       t.belongs_to :organization,  foreign_key: true 
       
     end

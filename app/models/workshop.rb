@@ -1,8 +1,7 @@
 class Workshop < ApplicationRecord
     belongs_to :branch , optional: true
     belongs_to :organization, optional: true
-    has_many :reveiws
-    has_many :image 
+    has_many :images , dependent: :destroy
 
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     

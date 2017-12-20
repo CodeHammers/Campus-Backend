@@ -139,20 +139,20 @@ Review.create!(feedback: "The best extracurricular activity ever",rating: 5, org
 	user_id:User.all.to_a.sample.id)
 
 #Creating some reviews (workshops)
-Review.create!(feedback: "Instead of becoming a hero, I became a zero :(",rating: 0.0, workshop_id: Ardunio.id, 
-      user_id:User.all.to_a.sample.id)
+#Review.create!(feedback: "Instead of becoming a hero, I became a zero :(",rating: 0.0, workshop_id: Ardunio.id, 
+ #     user_id:User.all.to_a.sample.id)
 
-Review.create!(feedback: "Workshop we7sha, 3yzeen felosna",rating: 1.0, workshop_id: Ardunio.id, 
-      user_id:User.all.to_a.sample.id)
+#Review.create!(feedback: "Workshop we7sha, 3yzeen felosna",rating: 1.0, workshop_id: Ardunio.id, 
+ #     user_id:User.all.to_a.sample.id)
 
-Review.create!(feedback: "Git started was my gate into the open source world",rating: 5.0, workshop_id: Git.id, 
-      user_id:User.all.to_a.sample.id)
+#Review.create!(feedback: "Git started was my gate into the open source world",rating: 5.0, workshop_id: Git.id, 
+ #     user_id:User.all.to_a.sample.id)
 
-Review.create!(feedback: "I have successfully killed my boss in a henious way",rating: 4.5, workshop_id: KillBoss.id, 
-      user_id:User.all.to_a.sample.id)
+#Review.create!(feedback: "I have successfully killed my boss in a henious way",rating: 4.5, workshop_id: KillBoss.id, 
+ #     user_id:User.all.to_a.sample.id)
 
-Review.create!(feedback: "OOP sucks, Linus Travold sends his regards ha3ha3ha3",rating: 2.5, workshop_id: OOP.id, 
-      user_id:User.all.to_a.sample.id)
+#Review.create!(feedback: "OOP sucks, Linus Travold sends his regards ha3ha3ha3",rating: 2.5, workshop_id: OOP.id, 
+ #     user_id:User.all.to_a.sample.id)
 
 #Creating some positions
 idK = Organization.create!(name: "kvector",phone:"32323233323",university:"Helwan",email:"none@none.com").id
