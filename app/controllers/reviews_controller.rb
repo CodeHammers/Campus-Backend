@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   def create
     
-    @review = Review.new(user_id:current_user.id,organization_id: params[:organization_id],branch_id:params[:branch_id],workshop_id:params[:workshop_id])
+    @review = Review.new(user_id:current_user.id,organization_id: params[:organization_id],branch_id:params[:branch_id],workshop_id:params[:workshop_id],feedback: params[:feedback])
 
     if @review.save
       render json: @review
