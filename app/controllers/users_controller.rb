@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def index_admins
+
+    @users  = User.execute_sql("select * from users as u where  u.nickname is not null ")
+    render json: @users
+  end
 
   def favo
     @ss = Subscribe.get_favos(current_user.id)
