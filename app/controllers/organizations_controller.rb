@@ -14,7 +14,7 @@ class OrganizationsController < ApplicationController
   end
 
   def sub_count
-    @res  = Organization.get_subs( params[:id] )
+    @res  = Organization.get_subs( params[:id] ).first
     render json: @res
   end
 
