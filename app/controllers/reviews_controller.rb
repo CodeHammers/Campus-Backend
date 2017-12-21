@@ -6,8 +6,6 @@ class ReviewsController < ApplicationController
   def index
     if params[:branch_id].present?
       @reviews = Review.get_all_branch_reviews(params[:branch_id]) 
-    elsif params[:workshop_id].present?
-      @reviews = Review.get_all_workshop_reviews(params[:workshop_id])
     else
       @reviews = Review.get_all_organization_reviews(params[:organization_id])
     end
