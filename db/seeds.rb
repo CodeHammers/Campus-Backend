@@ -1,5 +1,7 @@
 #starting a new session
 #db Clean 
+
+require 'faker'
 Image.delete_all
 Event.delete_all
 Review.delete_all
