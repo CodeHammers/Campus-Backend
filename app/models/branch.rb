@@ -22,7 +22,7 @@ class Branch < ApplicationRecord
 
 
     def self.get_avg_rating b_id
-         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.branch_id = ? ",o_id)
+         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.branch_id = ? ",b_id)
         return c
     end
 
