@@ -1,14 +1,17 @@
 class Organization < ApplicationRecord
 
-    has_many :workshops 
-    has_many :reservations 
-    has_many :events
-    has_many :image
+    has_many :workshops , dependent: :destroy
+    has_many :reservations , dependent: :destroy
+    has_many :events, dependent: :destroy
+    has_many :images, dependent: :destroy
 
-    has_many :subscribes
+
+    has_many :reviews  ,dependent: :destroy
+
+    has_many :subscribes, dependent: :destroy
     has_many :users, through: :subscribes
 
-    has_many :positions
+    has_many :positions , dependent: :destroy
     has_many :users, through: :positions
 
     validates :name , presence: true
@@ -19,6 +22,16 @@ class Organization < ApplicationRecord
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     
         connection.execute(send(:sanitize_sql_array, sql_array))
+    end
+
+    def self.get_subs o_id
+        c = Organization.execute_sql("select COUNT(*) from  subscribes as s  where  s.organization_id = ? ",o_id)
+        return c
+    end
+
+    def self.get_avg_rating o_id
+         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.organization_id = ? ",o_id)
+        return c
     end
 
     #A function to retrieve an organization using its id (full retrieval of data)

@@ -2,10 +2,11 @@ class Event < ApplicationRecord
     belongs_to :organization
 
     has_many :attends
-    has_many :image 
+    has_many :image , dependent: :destroy
     has_many :user, through: :attends
 
-    validates :title, :description, :time, :date, :venue_name, :location, :schedule, presence: true
+    belongs_to :branch
+    validates :title, :description, :date, :location, presence: true
 
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     

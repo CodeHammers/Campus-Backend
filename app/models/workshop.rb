@@ -1,12 +1,15 @@
 class Workshop < ApplicationRecord
     belongs_to :branch , optional: true
     belongs_to :organization, optional: true
-    has_many :reveiws
-    has_many :image 
+    has_many :images , dependent: :destroy
 
     #A function to enable using raw sql queries
     def self.execute_sql(*sql_array)     
         connection.execute(send(:sanitize_sql_array, sql_array))
+    end
+
+    def self.get_fav_feed(user_id)
+        feed = Workshop.execute_sql("select  o.name,w.title  from organizations as o , workshops as w, subscribes as s where s.user_id =? and s.organization_id = o.id and w.organization_id=o.id  ",user_id)
     end
 
     #A function to get a specific workshop indetified by its id

@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :update, :destroy]
 
+
   # GET /positions
   def index
     @positions = Position.all
@@ -11,6 +12,16 @@ class PositionsController < ApplicationController
   # GET /positions/1
   def show
     render json: @position 
+  end
+
+  def grant_acess_to_org
+    pp User.where(email:params[:email]).first
+    @pos = Position.new(organization_id:params[:organization_id],user_id: User.where(email:params[:email]).first.id ,title:"manager")
+    if @pos.save
+      render json: @pos
+    else
+      render json: @position.errors, status: :unprocessable_entity
+    end
   end
 
   # POST /positions

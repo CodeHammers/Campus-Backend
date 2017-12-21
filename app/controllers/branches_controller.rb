@@ -14,17 +14,27 @@ class BranchesController < ApplicationController
     render json: @managed_branches
   end
   
+  def get_avg_rating
+    @res  = Branch.get_avg_rating( params[:id] ).first
+    render json: @res
+  end
+
+
   # GET /branches/1
   def show
+    @branch["logo"] = Workspace.find(@branch["workspace_id"]).logo
+    @branch["title"] = Workspace.find(@branch["workspace_id"]).name
+
     render json: @branch
   end
 
   # POST /branches
   def create
     @branch = Branch.new(branch_params)
-    @position = Position.new(user_id:current_user.id, organizaion_id:branch.id, title:"owner")    
+    @branch.workspace_id = params[:workspace_id]
     
     if @branch.save
+      @position = Position.new(user_id:current_user.id, workspace_id:@branch.id, title:"owner")    
       render json: @branch
     else
       render json: @branch.errors, status: :unprocessable_entity

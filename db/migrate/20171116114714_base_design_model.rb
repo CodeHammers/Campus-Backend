@@ -58,7 +58,7 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       t.string  :title,       :null => false 
       t.text    :description, :null => true  
       t.date    :date,        :null => false 
-      t.time    :time,        :null => false 
+      t.time    :time,        :null => true 
       t.timestamps
 
       #relations
@@ -72,11 +72,9 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       #attributes
       t.string  :title,       :null => false 
       t.text    :description, :null => false  
-      t.time    :time,        :null => false 
+      t.time    :time,        :null => true 
       t.date    :date,        :null => false 
-      t.string  :venue_name,  :null => false 
       t.string  :location,    :null => false 
-      t.text    :schedule,    :null => false 
       t.timestamps
 
       #relations
@@ -95,7 +93,6 @@ class BaseDesignModel < ActiveRecord::Migration[5.1]
       #relations
       t.belongs_to :user , foreign_key: true
       t.belongs_to :branch , foreign_key: true
-      t.belongs_to :workshop , foreign_key: true
       t.belongs_to :organization,  foreign_key: true 
       
     end

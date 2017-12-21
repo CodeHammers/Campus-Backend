@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :update, :destroy]
+  before_action :authenticate_user! , only: [:create]
 
   # GET /reviews
   def index
@@ -21,7 +22,8 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
+    
+    @review = Review.new(user_id:current_user.id,organization_id: params[:organization_id],branch_id:params[:branch_id],workshop_id:params[:workshop_id],feedback: params[:feedback],rating: params[:rating])
 
     if @review.save
       render json: @review
@@ -52,6 +54,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def review_params
-      params.fetch(:review, {})
+      params.require(:review).permit(:feedback,:organization_id,:branch_id,:workshop_id,:rating)
     end
 end

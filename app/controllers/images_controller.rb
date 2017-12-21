@@ -24,7 +24,7 @@ class ImagesController < ApplicationController
   # POST /images
   def create
     @image = Image.new(image_params)
-
+    @image.room_id = params[:room_id]
     if @image.save
       render json: @image
     else

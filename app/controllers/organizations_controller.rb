@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :update, :destroy]
-  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
+  before_action :set_organization, only: [:show, :update, :destroy,:destroy_admin]
+  before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure,:subscribe]
     
   # GET /organizations
   def index
@@ -13,10 +13,38 @@ class OrganizationsController < ApplicationController
     render json: @organizations
   end
 
+  def sub_count
+    @res  = Organization.get_subs( params[:id] ).first
+    render json: @res
+  end
+
+  def get_avg_rating
+    @res  = Organization.get_avg_rating( params[:id] ).first
+    render json: @res
+  end
+
   def index_secure
     @managed_orgnizations =  Position.get_positons_organization(current_user.id)
     
     render json: @managed_orgnizations
+  end
+
+  def index_admin
+    @admin_organizations  = Organization.all;
+    render json: @admin_organizations
+  end
+
+  def subscribe
+    if Organization.where(id: params[:id]).first.nil?
+      params[:id]=nil
+    end
+    @subscribe = Subscribe.new(user_id: current_user.id,organization_id: params[:id])
+    if @subscribe.save
+      render json: @subscribe
+    else
+      render json: @subscribe.errors , status: :unprocessable_entity
+    end
+
   end
 
   # GET /organizations/1
@@ -47,6 +75,10 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def destroy_admin
+    @organization.destroy
+  end
+
   # DELETE /organizations/1
   def destroy
     @organization.destroy
@@ -55,7 +87,7 @@ class OrganizationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
-      @organization = Organization.get_organization(params[:id]).first
+      @organization = Organization.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

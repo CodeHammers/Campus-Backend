@@ -1,5 +1,5 @@
 class Workspace < ApplicationRecord
-    has_many :branches
+    has_many :branches, dependent: :destroy
 
     validates :name, presence: true
     validates :name, uniqueness: true

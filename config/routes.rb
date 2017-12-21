@@ -54,6 +54,32 @@ Rails.application.routes.draw do
     get 'auth/workspaces', to: 'workspaces#index_secure'
     get 'auth/organizations', to: 'organizations#index_secure'
     get 'auth/branches', to: 'branches#index_secure'
+    post 'grant/organiztion' , to: 'positions#grant_acess_to_org'
+    get 'admin/workspaces' , to: 'workspaces#index_admin'
+
+
+    get 'admin/organizations' , to: 'organizations#index_admin'
+
+    get 'user/feed' , to: 'users#feed'
+
+    get 'user/subcribe' , to: 'users#favo'
+
+    get 'admins' , to: 'users#index_admins'
+
+    get 'organizations/:id/subs' ,to: "organizations#sub_count"
+    get 'organizations/:id/reviews' ,to: "organizations#get_avg_rating"
+
+    get 'branches/:id/reviews' ,to: "branches#get_avg_rating"
+
+
+    post 'user/adminize', to: 'users#adminze'
+
+
+    post 'organizations/:id/subscribe' ,to: 'organizations#subscribe'
+
+    delete 'admin/workspaces/:id' , to: 'workspaces#destroy_admin'
+    delete 'admin/organizations/:id' , to: 'organizations#destroy_admin'
+
 
   end
 end

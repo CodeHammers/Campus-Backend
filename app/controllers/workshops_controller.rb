@@ -22,7 +22,7 @@ class WorkshopsController < ApplicationController
   # POST /workshops
   def create
     @workshop = Workshop.new(workshop_params) 
-
+    @workshop.organization_id = params[:organization_id]
     if @workshop.save
       render json: @workshop
     else
@@ -47,11 +47,11 @@ class WorkshopsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workshop
-      @workshop = Workshop.get_workshop(params[:id]).first
+      @workshop = Workshop.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def workshop_params
-      params.require(:workshop).permit(:title, :description, :date, :time)
+      params.require(:workshop).permit(:title, :description, :date, :time,:branch_id,:organization_id)
     end
 end

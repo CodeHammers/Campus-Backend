@@ -1,13 +1,15 @@
 class Branch < ApplicationRecord
 
     belongs_to :workspace
-    has_many :rooms
-    has_many :workshops
-    has_many :reviews
-    has_many :reservations
+    has_many :rooms, dependent: :destroy
+    has_many :workshops, dependent: :destroy
+    has_many :reviews, dependent: :destroy
+    has_many :reservations, dependent: :destroy
 
-    has_many :positions
+    has_many :positions, dependent: :destroy
     has_many :users, through: :positions
+
+    has_many :events, dependent: :destroy
 
     validates :number_of_rooms,:address,:phone,:email, presence: true  
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -16,6 +18,13 @@ class Branch < ApplicationRecord
     def self.execute_sql(*sql_array)     
    		connection.execute(send(:sanitize_sql_array, sql_array))
   	end
+
+
+
+    def self.get_avg_rating b_id
+         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.branch_id = ? ",b_id)
+        return c
+    end
 
     #A function to retrieve a branch using its id (full retrieval of data)
     def self.get_branch(branch_id, workspace_id)

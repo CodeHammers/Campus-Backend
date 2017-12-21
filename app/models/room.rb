@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
 
     belongs_to :branch 
-    has_many :image 
+    has_many :images , dependent: :destroy 
 
     validates :price ,:capacity ,presence: true 
 

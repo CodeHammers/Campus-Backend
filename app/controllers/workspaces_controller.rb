@@ -1,5 +1,5 @@
 class WorkspacesController < ApplicationController
-  before_action :set_workspace, only: [:show, :update, :destroy]
+  before_action :set_workspace, only: [:show, :update, :destroy,:destroy_admin]
   before_action :authenticate_user!, only: [:create, :update, :destroy,:index_secure]
   
   # GET /workspaces
@@ -11,6 +11,11 @@ class WorkspacesController < ApplicationController
     end 
 
     render json: @workspaces
+  end
+
+  def index_admin
+    @admin_workspaces  = Workspace.all;
+    render json: @admin_workspaces
   end
 
   def index_secure
@@ -28,7 +33,7 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new(workspace_params)
     
     if @workspace.save 
-      Position.create(user_id:current_user.id, organizaion_id: @workspace.id, title:"owner")
+      Position.create(user_id:current_user.id, workspace_id: @workspace.id, title:"owner")
       
       render json: @workspace
     else
@@ -45,6 +50,10 @@ class WorkspacesController < ApplicationController
     end
   end
 
+  def destroy_admin
+    @workspace.destroy
+  end
+
   # DELETE /workspaces/1
   def destroy
     @workspace.destroy
@@ -53,7 +62,7 @@ class WorkspacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_workspace
-      @workspace = Workspace.get_workspace(params[:id]).first
+      @workspace = Workspace.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
