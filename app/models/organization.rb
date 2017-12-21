@@ -29,6 +29,11 @@ class Organization < ApplicationRecord
         return c
     end
 
+    def self.get_avg_rating o_id
+         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.organization_id = ? ",o_id)
+        return c
+    end
+
     #A function to retrieve an organization using its id (full retrieval of data)
     def self.get_organization(org_id)
         org = Organization.execute_sql("select * from organizations as o where o.id = ?",org_id)

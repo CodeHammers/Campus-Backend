@@ -67,6 +67,8 @@ Rails.application.routes.draw do
     get 'admins' , to: 'users#index_admins'
 
     get 'organizations/:id/subs' ,to: "organizations#sub_count"
+    get 'organizations/:id/reviews' ,to: "organizations#get_avg_rating"
+
 
     post 'user/adminize', to: 'users#adminze'
 
