@@ -13,6 +13,11 @@ class OrganizationsController < ApplicationController
     render json: @organizations
   end
 
+  def sub_count
+    @res  = Organization.get_subs( params[:id] )
+    render json: @res
+  end
+
   def index_secure
     @managed_orgnizations =  Position.get_positons_organization(current_user.id)
     

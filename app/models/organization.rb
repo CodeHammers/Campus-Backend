@@ -24,6 +24,11 @@ class Organization < ApplicationRecord
         connection.execute(send(:sanitize_sql_array, sql_array))
     end
 
+    def self.get_subs o_id
+        c = Organization.execute_sql("select COUNT(*) from  subscribes as s  where  s.organization_id = ? ",o_id)
+        return c
+    end
+
     #A function to retrieve an organization using its id (full retrieval of data)
     def self.get_organization(org_id)
         org = Organization.execute_sql("select * from organizations as o where o.id = ?",org_id)

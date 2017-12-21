@@ -66,7 +66,10 @@ Rails.application.routes.draw do
 
     get 'admins' , to: 'users#index_admins'
 
+    get 'organizations/:id/subs' ,to: "organizations#sub_count"
+
     post 'user/adminize', to: 'users#adminze'
+
 
     post 'organizations/:id/subscribe' ,to: 'organizations#subscribe'
 
