@@ -14,6 +14,12 @@ class BranchesController < ApplicationController
     render json: @managed_branches
   end
   
+  def get_avg_rating
+    @res  = Branch.get_avg_rating( params[:id] ).first
+    render json: @res
+  end
+
+
   # GET /branches/1
   def show
     @branch["logo"] = Workspace.find(@branch["workspace_id"]).logo

@@ -19,6 +19,13 @@ class Branch < ApplicationRecord
    		connection.execute(send(:sanitize_sql_array, sql_array))
   	end
 
+
+
+    def self.get_avg_rating b_id
+         c = Organization.execute_sql("select AVG(r.rating) from  reviews as r  where  r.branch_id = ? ",o_id)
+        return c
+    end
+
     #A function to retrieve a branch using its id (full retrieval of data)
     def self.get_branch(branch_id, workspace_id)
         branch = Branch.execute_sql("select * from branches as b where b.id = ? and b.workspace_id = ?", branch_id, workspace_id)

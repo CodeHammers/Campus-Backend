@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
   end
 
   def get_avg_rating
-    @res  = Organization.get_subs( params[:id] ).first
+    @res  = Organization.get_avg_rating( params[:id] ).first
     render json: @res
   end
 
